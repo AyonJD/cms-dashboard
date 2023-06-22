@@ -62,7 +62,7 @@ export default function OrderForm() {
                     <Paper sx={{ p: 0 }}>
                         <CustomCard>
                             <Typography variant="h5" mb={4}>
-                                {'Form'}
+                                {'Order Form'}
                             </Typography>
                             <Box sx={{ maxWidth: '100%' }}>
                                 <form onSubmit={handleSubmit}>
@@ -311,9 +311,9 @@ export default function OrderForm() {
                                             <Grid item xs={6} sm={6} md={3}>
                                                 <Button
                                                     fullWidth
-                                                    variant="contained"
+                                                    variant="outlined"
                                                     color="error"
-                                                    sx={{ mr: 1, padding: '8px 0', color: '#fff' }}
+                                                    sx={{ mr: 1, padding: '8px 0' }}
                                                 >
                                                     Cancel
                                                 </Button>
@@ -322,10 +322,10 @@ export default function OrderForm() {
                                             <Grid item xs={6} sm={6} md={3}>
                                                 <Button
                                                     fullWidth
-                                                    variant="contained"
+                                                    variant="outlined"
                                                     color="primary"
                                                     type="submit"
-                                                    sx={{ padding: '8px 0', color: '#fff' }}
+                                                    sx={{ padding: '8px 0' }}
                                                 >
                                                     Save
                                                 </Button>
@@ -335,7 +335,7 @@ export default function OrderForm() {
                                                 <Button
                                                     fullWidth
                                                     variant="contained"
-                                                    color="success"
+                                                    color="primary"
                                                     sx={{ mr: 1, padding: '8px 0', color: '#fff' }}
                                                 >
                                                     Print
