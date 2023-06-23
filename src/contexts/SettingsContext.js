@@ -63,12 +63,23 @@ const PRIMARY_COLOR = [
     darker: '#7A0930',
     contrastText: '#fff',
   },
+  // Own
+  {
+    name: 'own',
+    lighter: '#2d9bfc',
+    light: '#1890FF',
+    main: '#1890FF',
+    dark: '#0c8dff',
+    darker: '#0c8dff',
+    contrastText: '#fff',
+  }
 ];
 
 SetColor.propTypes = {
   themeColor: PropTypes.oneOf([
     'default',
     'purple',
+    'own',
     'cyan',
     'blue',
     'orange',
@@ -84,6 +95,7 @@ function SetColor(themeColor) {
   const BLUE = PRIMARY_COLOR[3];
   const ORANGE = PRIMARY_COLOR[4];
   const RED = PRIMARY_COLOR[5];
+  const OWN = PRIMARY_COLOR[6];
 
   switch (themeColor) {
     case 'purple':
@@ -101,6 +113,9 @@ function SetColor(themeColor) {
     case 'red':
       color = RED;
       break;
+    case 'own':
+      color = OWN;
+      break;
     default:
       color = DEFAULT;
   }
@@ -110,7 +125,7 @@ function SetColor(themeColor) {
 const initialState = {
   themeMode: 'light',
   themeDirection: 'ltr',
-  themeColor: 'cyan',
+  themeColor: 'own',
   themeStretch: false,
   onChangeMode: () => { },
   onChangeDirection: () => { },

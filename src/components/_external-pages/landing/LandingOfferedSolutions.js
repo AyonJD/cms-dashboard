@@ -116,7 +116,7 @@ export default function LandingOfferedSolutions() {
                             <Typography
                                 component='span'
                                 variant='h1'
-                                sx={{ color: 'primary.main' }}
+                                sx={{ color: 'info.main' }}
                             >
                                 &nbsp;Kitchen
                             </Typography>

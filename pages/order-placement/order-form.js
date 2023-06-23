@@ -1,4 +1,4 @@
-import { Box, Button, Container, Divider, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography, useTheme } from '@mui/material';
+import { Box, Button, Container, Divider, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import Page from 'src/components/Page';
 import useSettings from 'src/hooks/useSettings';
@@ -7,12 +7,10 @@ import DashboardLayout from 'src/layouts/dashboard';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Radio from '@mui/material/Radio';
 import CustomCard from 'src/components/card/CustomCard';
-import { MotionInView, varFadeInDown } from 'src/components/animate';
+import { ButtonAnimate, MotionInView, varFadeInDown } from 'src/components/animate';
 
 export default function OrderForm() {
     const { themeStretch } = useSettings();
-    const theme = useTheme();
-    const isLight = theme.palette.mode === 'light';
 
     const [formData, setFormData] = useState({
         orderId: '',
@@ -57,7 +55,7 @@ export default function OrderForm() {
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Kitchen | Feedback">
+            <Page title="Kitchen | Order Form">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Paper sx={{ p: 0 }}>
                         <CustomCard>
@@ -309,43 +307,51 @@ export default function OrderForm() {
                                     <MotionInView variants={varFadeInDown}>
                                         <Grid sx={{ marginTop: 1 }} container spacing={4}>
                                             <Grid item xs={6} sm={6} md={3}>
-                                                <Button
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    color="error"
-                                                    sx={{ mr: 1, padding: '8px 0' }}
-                                                >
-                                                    Cancel
-                                                </Button>
+                                                <ButtonAnimate sx={{ width: '100%' }} mediumClick={true}>
+                                                    <Button
+                                                        fullWidth
+                                                        variant="outlined"
+                                                        color="error"
+                                                        sx={{ mr: 1, padding: '8px 0' }}
+                                                    >
+                                                        Cancel
+                                                    </Button>
+                                                </ButtonAnimate>
                                             </Grid>
 
                                             <Grid item xs={6} sm={6} md={3}>
-                                                <Button
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    color="primary"
-                                                    type="submit"
-                                                    sx={{ padding: '8px 0' }}
-                                                >
-                                                    Save
-                                                </Button>
+                                                <ButtonAnimate sx={{ width: '100%' }} mediumClick={true}>
+                                                    <Button
+                                                        fullWidth
+                                                        variant="outlined"
+                                                        color="primary"
+                                                        type="submit"
+                                                        sx={{ padding: '8px 0' }}
+                                                    >
+                                                        Save
+                                                    </Button>
+                                                </ButtonAnimate>
                                             </Grid>
 
                                             <Grid item xs={6} sm={6} md={3}>
-                                                <Button
-                                                    fullWidth
-                                                    variant="contained"
-                                                    color="primary"
-                                                    sx={{ mr: 1, padding: '8px 0', color: '#fff' }}
-                                                >
-                                                    Print
-                                                </Button>
+                                                <ButtonAnimate sx={{ width: '100%' }} mediumClick={true}>
+                                                    <Button
+                                                        fullWidth
+                                                        variant="contained"
+                                                        color="primary"
+                                                        sx={{ mr: 1, padding: '8px 0', color: '#fff' }}
+                                                    >
+                                                        Print
+                                                    </Button>
+                                                </ButtonAnimate>
                                             </Grid>
 
                                             <Grid item xs={6} sm={6} md={3}>
-                                                <Button sx={{ padding: '8px 0', color: '#fff' }} fullWidth variant="contained" color="error">
-                                                    Delete
-                                                </Button>
+                                                <ButtonAnimate sx={{ width: '100%' }} mediumClick={true}>
+                                                    <Button sx={{ padding: '8px 0', color: '#fff' }} fullWidth variant="contained" color="error">
+                                                        Delete
+                                                    </Button>
+                                                </ButtonAnimate>
                                             </Grid>
                                         </Grid>
                                     </MotionInView>
