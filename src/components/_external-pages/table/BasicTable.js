@@ -19,30 +19,62 @@ const BASIC_TABLE = [
 
 // ----------------------------------------------------------------------
 
-export default function BasicTable() {
+export default function BasicTable({ tableData }) {
+    const rows = tableData ? tableData : BASIC_TABLE;
     return (
         <Scrollbar>
             <TableContainer sx={{ minWidth: 800, mt: 3 }}>
                 <Table>
                     <TableHead>
-                        <TableRow>
-                            <TableCell>Product</TableCell>
-                            <TableCell align="right">Unit</TableCell>
-                            <TableCell align="right">Staff</TableCell>
-                            <TableCell align="right">Date</TableCell>
-                            <TableCell align="right">Status</TableCell>
-                        </TableRow>
+                        {
+                            tableData ? (
+                                <TableRow>
+                                    <TableCell>Serial</TableCell>
+                                    <TableCell>Product</TableCell>
+                                    <TableCell align="center">Unit</TableCell>
+                                    <TableCell align="right">Price</TableCell>
+                                    <TableCell align="right">Total</TableCell>
+                                </TableRow>
+                            ) : (
+                                <TableRow>
+                                    <TableCell>Product</TableCell>
+                                    <TableCell align="center">Unit</TableCell>
+                                    <TableCell align="right">Staff</TableCell>
+                                    <TableCell align="right">Date</TableCell>
+                                    <TableCell align="right">Status</TableCell>
+                                </TableRow>
+                            )
+                        }
+
                     </TableHead>
                     <TableBody>
-                        {BASIC_TABLE.map((row, index) => (
+                        {rows.map((row, index) => (
                             <TableRow key={row.index}>
-                                <TableCell component="th" scope="row">
+                                {
+                                    tableData && (
+                                        <TableCell>
+                                            {index + 1}
+                                        </TableCell>
+                                    )
+                                }
+                                <TableCell>
                                     {row.product}
                                 </TableCell>
-                                <TableCell align="right">{row.unit}</TableCell>
-                                <TableCell align="right">{row.staff}</TableCell>
-                                <TableCell align="right">{row.date}</TableCell>
-                                <TableCell align="right">{row.status}</TableCell>
+                                <TableCell align="center">{row.unit}</TableCell>
+                                {
+                                    tableData ? (
+                                        <>
+                                            <TableCell align="right">{row.price}</TableCell>
+                                            <TableCell align="right">{row.total}</TableCell>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <TableCell align="right">{row.staff}</TableCell>
+                                            <TableCell align="right">{row.date}</TableCell>
+                                            <TableCell align="right">{row.status}</TableCell>
+                                        </>
+                                    )
+                                }
                             </TableRow>
                         ))}
                     </TableBody>

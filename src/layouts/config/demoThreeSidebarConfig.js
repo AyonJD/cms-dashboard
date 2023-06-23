@@ -26,7 +26,7 @@ const demoThreeSidebarConfig =
         },
         {
             title: "Invoice",
-            path: '/order-delivery/current-accounts',
+            path: '/order-delivery/invoice',
             icon: ICONS.ecommerce,
         },
         {
