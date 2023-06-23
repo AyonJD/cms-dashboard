@@ -108,13 +108,16 @@ function stableSort(array, comparator) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-export default function SortingSelecting() {
+export default function SortingSelecting({ formHeader, tableHead, tableData }) {
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('calories');
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(0);
     const [dense, setDense] = useState(false);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+
+    const DYNAMIC_TABLE_HEAD = tableHead ? tableHead : TABLE_HEAD;
+    const DYNAMIC_TABLE_DATA = tableData ? tableData : SORTING_SELECTING_TABLE;
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -124,7 +127,7 @@ export default function SortingSelecting() {
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
-            const newSelecteds = SORTING_SELECTING_TABLE.map((n) => n.orderId);
+            const newSelecteds = DYNAMIC_TABLE_DATA.map((n) => n.orderId);
             setSelected(newSelecteds);
             return;
         }
@@ -162,12 +165,12 @@ export default function SortingSelecting() {
 
     const isSelected = (orderId) => selected.indexOf(orderId) !== -1;
 
-    // Avoid a layout jump when reaching the last page with empty SORTING_SELECTING_TABLE.
-    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - SORTING_SELECTING_TABLE.length) : 0;
+    // Avoid a layout jump when reaching the last page with empty DYNAMIC_TABLE_DATA.
+    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - DYNAMIC_TABLE_DATA.length) : 0;
 
     return (
         <>
-            <SortingSelectingToolbar numSelected={selected.length} />
+            <SortingSelectingToolbar formHeader={formHeader} numSelected={selected.length} />
 
             <Scrollbar>
                 <TableContainer sx={{ minWidth: 800 }}>
@@ -175,14 +178,14 @@ export default function SortingSelecting() {
                         <SortingSelectingHead
                             order={order}
                             orderBy={orderBy}
-                            headLabel={TABLE_HEAD}
+                            headLabel={DYNAMIC_TABLE_HEAD}
                             numSelected={selected.length}
                             onRequestSort={handleRequestSort}
-                            rowCount={SORTING_SELECTING_TABLE.length}
+                            rowCount={DYNAMIC_TABLE_DATA.length}
                             onSelectAllClick={handleSelectAllClick}
                         />
                         <TableBody>
-                            {stableSort(SORTING_SELECTING_TABLE, getComparator(order, orderBy))
+                            {stableSort(DYNAMIC_TABLE_DATA, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
                                     const isItemSelected = isSelected(row.orderId);
@@ -208,8 +211,14 @@ export default function SortingSelecting() {
                                             <TableCell align="right">{row.orderItem}</TableCell>
                                             <TableCell align="right">{row.totalPrice}</TableCell>
                                             <TableCell align="right">{row.deliveryDate}</TableCell>
-                                            <TableCell align="right">{row.comment}</TableCell>
-                                            <TableCell align="right">{row.status}</TableCell>
+                                            {
+                                                !tableHead && (
+                                                    <>
+                                                        <TableCell align="right">{row.comment}</TableCell>
+                                                        <TableCell align="right">{row.status}</TableCell>
+                                                    </>
+                                                )
+                                            }
                                         </TableRow>
                                     );
                                 })}
@@ -231,7 +240,7 @@ export default function SortingSelecting() {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={SORTING_SELECTING_TABLE.length}
+                    count={DYNAMIC_TABLE_DATA.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

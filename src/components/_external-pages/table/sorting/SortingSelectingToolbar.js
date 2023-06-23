@@ -21,7 +21,7 @@ SortingSelectingToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired
 };
 
-export default function SortingSelectingToolbar({ numSelected }) {
+export default function SortingSelectingToolbar({ formHeader, numSelected }) {
     const theme = useTheme();
     const isLight = theme.palette.mode === 'light';
 
@@ -40,7 +40,7 @@ export default function SortingSelectingToolbar({ numSelected }) {
                 </Typography>
             ) : (
                 <Typography variant="h6" id="tableTitle" component="div">
-                    Order List
+                    {formHeader || 'Order List'}
                 </Typography>
             )}
 
