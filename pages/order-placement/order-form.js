@@ -29,6 +29,8 @@ export default function OrderForm() {
         totalPayment: '',
         paid: '',
         notPaid: '',
+        partialPayment: '',
+        due: '',
 
         selectedValue: ''
     });
@@ -50,7 +52,7 @@ export default function OrderForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData); // You can perform further actions here, such as submitting the form data
+        console.log(formData); 
     };
 
     return (
@@ -281,22 +283,22 @@ export default function OrderForm() {
                                             <Grid item xs={6} sm={4} md={4} >
                                                 <FormControl fullWidth sx={{ maxWidth: '100%' }}>
                                                     <TextField
-                                                        name="totalPayment"
-                                                        label="Total Payment"
-                                                        value={formData.totalPayment}
+                                                        name="partialPayment"
+                                                        label="Partial Payment"
+                                                        value={formData.partialPayment}
                                                         onChange={handleChange}
-                                                        placeholder='Total Payment'
+                                                        placeholder='Partial Payment'
                                                     />
                                                 </FormControl>
                                             </Grid>
                                             <Grid item xs={6} sm={5} md={5} >
                                                 <FormControl fullWidth sx={{ maxWidth: '100%' }}>
                                                     <TextField
-                                                        name="totalPayment"
-                                                        label="Total Payment"
-                                                        value={formData.totalPayment}
+                                                        name="due"
+                                                        label="Due"
+                                                        value={formData.due}
                                                         onChange={handleChange}
-                                                        placeholder='Total Payment'
+                                                        placeholder='Due'
                                                     />
                                                 </FormControl>
                                             </Grid>

@@ -14,24 +14,12 @@ export default function Invoice() {
     const { themeStretch } = useSettings();
 
     const [formData, setFormData] = useState({
-        orderId: '',
-        date: new Date().toISOString().slice(0, 10),
-        firstName: '',
-        lastName: '',
-        phone: '',
-        email: '',
-        address: '',
+        date: new Date().toLocaleDateString(),
         currency: '৳ TAKA',
-        productId: '',
-        productName: '',
-        productRate: '',
-        productQuantity: 1,
         discount: '',
         totalPayment: '',
-        paid: '',
-        notPaid: '',
-
-        selectedValue: ''
+        partialPayment: '',
+        due: '',
     });
 
     function createData(product, unit, price, total) {
@@ -55,16 +43,9 @@ export default function Invoice() {
         }));
     };
 
-    const increaseQuantity = () => {
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            productQuantity: parseInt(prevFormData.productQuantity) + 1,
-        }));
-    };
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData); // You can perform further actions here, such as submitting the form data
+        console.log(formData);
     };
 
     return (
@@ -175,22 +156,22 @@ export default function Invoice() {
                                             <Grid item xs={6} sm={4} md={4} >
                                                 <FormControl fullWidth sx={{ maxWidth: '100%' }}>
                                                     <TextField
-                                                        name="totalPayment"
-                                                        label="Total Payment"
-                                                        value={formData.totalPayment}
+                                                        name="partialPayment"
+                                                        label="Partial Payment"
+                                                        value={formData.partialPayment}
                                                         onChange={handleChange}
-                                                        placeholder='Total Payment'
+                                                        placeholder='Partial Payment'
                                                     />
                                                 </FormControl>
                                             </Grid>
                                             <Grid item xs={6} sm={5} md={5} >
                                                 <FormControl fullWidth sx={{ maxWidth: '100%' }}>
                                                     <TextField
-                                                        name="totalPayment"
-                                                        label="Total Payment"
-                                                        value={formData.totalPayment}
+                                                        name="due"
+                                                        label="Due"
+                                                        value={formData.due}
                                                         onChange={handleChange}
-                                                        placeholder='Total Payment'
+                                                        placeholder='Due'
                                                     />
                                                 </FormControl>
                                             </Grid>
