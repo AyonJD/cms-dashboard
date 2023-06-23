@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Page from "src/components/Page";
 import CustomCountUp from "src/components/_external-pages/count-up/CustomCountUp";
 import CollapsibleTable from "src/components/_external-pages/table";
+import { MotionInView, varFadeInLeft, varFadeInRight } from "src/components/animate";
 
 import CustomCard from "src/components/card/CustomCard";
 import useSettings from "src/hooks/useSettings";
@@ -24,20 +25,24 @@ export default function OrderBreakdown() {
             <Page title="Kitchen | Order Breakdown">
                 <Container maxWidth={themeStretch ? false : "xl"}>
                     <Paper sx={{ p: 0 }}>
-                        <CustomCard sx={{ background: '#1890FF' }}>
-                            <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', paddingTop: 0 }}>
-                                <Box sx={{ display: 'flex', width: '70%', justifyContent: 'space-between' }}>
-                                    {
-                                        countData.map((count, index) => (
-                                            <CustomCountUp key={index} count={count.count} countTitle={count.countTitle} />
-                                        ))
-                                    }
+                        <MotionInView variants={varFadeInLeft}>
+                            <CustomCard sx={{ background: '#1890FF' }}>
+                                <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', paddingTop: 0 }}>
+                                    <Box sx={{ display: 'flex', width: '70%', justifyContent: 'space-between' }}>
+                                        {
+                                            countData.map((count, index) => (
+                                                <CustomCountUp key={index} count={count.count} countTitle={count.countTitle} />
+                                            ))
+                                        }
+                                    </Box>
                                 </Box>
-                            </Box>
-                        </CustomCard>
+                            </CustomCard>
+                        </MotionInView>
 
-                        <CustomCard sx={{marginTop: 4}}>
-                            <CollapsibleTable />
+                        <CustomCard sx={{ marginTop: 4 }}>
+                            <MotionInView variants={varFadeInRight}>
+                                <CollapsibleTable />
+                            </MotionInView>
                         </CustomCard>
                     </Paper>
                 </Container>
