@@ -2,6 +2,8 @@ import { Box, Container, Paper } from "@mui/material";
 import { useRef } from "react";
 import Page from "src/components/Page";
 import CustomCountUp from "src/components/_external-pages/count-up/CustomCountUp";
+import CollapsibleTable from "src/components/_external-pages/table";
+
 import CustomCard from "src/components/card/CustomCard";
 import useSettings from "src/hooks/useSettings";
 import demoOneSidebarConfig from "src/layouts/config/demoOneSidebarConfig";
@@ -22,7 +24,7 @@ export default function OrderBreakdown() {
             <Page title="Kitchen | Order Breakdown">
                 <Container maxWidth={themeStretch ? false : "xl"}>
                     <Paper sx={{ p: 0 }}>
-                        <CustomCard sx={{ background: '#1ccaff' }}>
+                        <CustomCard sx={{ background: '#1890FF' }}>
                             <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', paddingTop: 0 }}>
                                 <Box sx={{ display: 'flex', width: '70%', justifyContent: 'space-between' }}>
                                     {
@@ -32,11 +34,10 @@ export default function OrderBreakdown() {
                                     }
                                 </Box>
                             </Box>
+                        </CustomCard>
 
-                            {/* Table */}
-                            <Box>
-
-                            </Box>
+                        <CustomCard sx={{marginTop: 4}}>
+                            <CollapsibleTable />
                         </CustomCard>
                     </Paper>
                 </Container>

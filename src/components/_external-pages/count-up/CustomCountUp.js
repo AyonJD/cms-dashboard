@@ -11,7 +11,8 @@ export default function CustomCountUp({ count, countTitle }) {
                     xs: '1rem',
                     sm: '2rem',
                     md: '2.5rem'
-                }
+                },
+                color: '#fff'
             }}>
                 <CountUp end={count} duration={9} />
             </Typography>
@@ -20,7 +21,8 @@ export default function CustomCountUp({ count, countTitle }) {
                     xs: '0.5rem',
                     sm: '.8rem',
                     md: '1rem'
-                }
+                },
+                color: '#fff'
             }} >
                 {countTitle}
             </Typography>
