@@ -15,7 +15,7 @@ export default function Sales() {
 
     return (
         <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
-            <Page title="Kitchen | Sales">
+            <Page title="CMS | Sales">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <MotionInView variants={varFadeInDown}>
                         <Typography variant="h6" component="h6" paragraph sx={{ textAlign: 'center' }}>

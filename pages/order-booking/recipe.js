@@ -33,7 +33,7 @@ function Recipe({ classes }) {
 
     return (
         <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
-            <Page title="Kitchen | Recipe">
+            <Page title="CMS | Recipe">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Box sx={{
                         display: 'flex', justifyContent: 'space-between', flexDirection: {

@@ -52,7 +52,7 @@ export default function DeliveryLog() {
     const { themeStretch } = useSettings();
     return (
         <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
-            <Page title="Kitchen | Delivery Log">
+            <Page title="CMS | Delivery Log">
                 <Container maxWidth={themeStretch ? false : "xl"}>
                     <Paper sx={{ p: 0 }}>
                         <CustomCard sx={{ width: 'auto', overflowX: 'auto' }}>

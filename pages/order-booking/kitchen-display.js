@@ -6,7 +6,7 @@ import demoTwoSidebarConfig from "src/layouts/config/demoTowSidebarConfig";
 import DashboardLayout from "src/layouts/dashboard";
 
 
-export default function KitchenDisplay() {
+export default function CMSDisplay() {
     const { themeStretch } = useSettings();
     const theme = useTheme();
     const isLight = theme.palette.mode === 'light';
@@ -66,7 +66,7 @@ export default function KitchenDisplay() {
 
     return (
         <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
-            <Page title="Kitchen | Kitchen Display">
+            <Page title="CMS | CMS Display">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Grid container spacing={3}>
                         {

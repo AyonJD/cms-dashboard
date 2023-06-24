@@ -27,7 +27,7 @@ export default function LandingPage() {
   return (
     <MainLayout>
       <RootStyle
-        title='Kitchen'
+        title='CMS'
         id='move_top'
       >
         <LandingHero />

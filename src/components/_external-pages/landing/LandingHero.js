@@ -184,16 +184,16 @@ export default function LandingHero() {
             />
 
             {/* Main heading */}
-            <motion.div variants={varFadeInUp} style={{marginTop: 0}}>
+            <motion.div variants={varFadeInUp} style={{ marginTop: 0 }}>
               <Typography variant='h1' sx={{ color: 'common.white' }}>
-                Kitchen
+                CMS
               </Typography>
             </motion.div>
 
             {/* Sub heaing */}
-            <motion.div variants={varFadeInUp} style={{marginTop: 0}}>
+            <motion.div variants={varFadeInUp} style={{ marginTop: 0 }}>
               <Typography variant='h4' sx={{ color: 'common.white' }}>
-                Cafe & Restaurant
+                Client Management Solutions
               </Typography>
             </motion.div>
 

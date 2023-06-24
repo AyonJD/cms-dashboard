@@ -9,7 +9,7 @@ export default function SelectProduct() {
     const { themeStretch } = useSettings();
     return (
         <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
-            <Page title="Kitchen | Select Product">
+            <Page title="CMS | Select Product">
                 <Container maxWidth={themeStretch ? false : "xl"}>
                     <Paper sx={{ p: 0 }}>
                         <SelectProductForm />

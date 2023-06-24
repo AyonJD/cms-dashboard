@@ -77,7 +77,7 @@ export default function ProductPortfolio() {
     return (
         <>
             <MainNavbar />
-            <Page title="Kitchen | Product Portfolio">
+            <Page title="CMS | Product Portfolio">
                 <RootStyle>
                     <Container>
                         <MotionInView variants={varFadeInUp}>

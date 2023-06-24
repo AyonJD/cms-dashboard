@@ -27,16 +27,17 @@ import {
     varFadeInRight,
 } from '../../animate';
 import CustomCard from 'src/components/card/CustomCard';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import RamenDiningIcon from '@mui/icons-material/RamenDining';
 import TapasIcon from '@mui/icons-material/Tapas';
+
+import MedicationLiquidIcon from '@mui/icons-material/MedicationLiquid';
+import HealingIcon from '@mui/icons-material/Healing';
+import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
 
 // ----------------------------------------------------------------------
 
 const SOLUTIONTITLE = ['Order Placement', 'Order Booking', 'Order Delivery'];
 const SOLUTION_URL = ['/order-placement/order-form', '/order-booking/select-product', '/order-delivery/select-product'];
-const SOLUTION_ICON = [RestaurantIcon, RamenDiningIcon, TapasIcon];
+const SOLUTION_ICON = [MedicationLiquidIcon, HealingIcon, LocalPharmacyIcon];
 
 const SOLUtION_ITEMS = [...Array(3)].map((_, index) => ({
     title: SOLUTIONTITLE[index],
@@ -118,7 +119,7 @@ export default function LandingOfferedSolutions() {
                                 variant='h1'
                                 sx={{ color: 'info.main' }}
                             >
-                                &nbsp;Kitchen
+                                &nbsp;CMS
                             </Typography>
                         </Typography>
                     </motion.div>
@@ -131,7 +132,7 @@ export default function LandingOfferedSolutions() {
                                 md: 4
                             }
                         }}>
-                            Experience the perfect harmony of culinary mastery and inviting accommodations at Kitchen Hotel, ensuring an unforgettable stay.
+                            CMS is a platform that allows you to place orders, book orders and deliver orders.
                         </Typography>
                     </motion.div>
                 </Box>

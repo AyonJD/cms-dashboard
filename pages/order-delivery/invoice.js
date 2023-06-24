@@ -50,7 +50,7 @@ export default function Invoice() {
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Kitchen | Invoice">
+            <Page title="CMS | Invoice">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Paper sx={{ p: 0 }}>
                         <CustomCard>

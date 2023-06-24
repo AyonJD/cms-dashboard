@@ -41,7 +41,7 @@ export default function OrderInput() {
 
     return (
         <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
-            <Page title="Kitchen | Order Input">
+            <Page title="CMS | Order Input">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                         <MotionInView variants={varFadeInLeft}>
@@ -63,9 +63,9 @@ export default function OrderInput() {
                         </CustomCard>
                     </MotionInView>
 
-                        <CustomCard sx={{ marginTop: 2 }}>
-                            <SwiperCardSlider sliderBackground={sliderBackground} cardData={cardData} />
-                        </CustomCard>
+                    <CustomCard sx={{ marginTop: 2 }}>
+                        <SwiperCardSlider sliderBackground={sliderBackground} cardData={cardData} />
+                    </CustomCard>
                 </Container>
             </Page>
         </DashboardLayout>

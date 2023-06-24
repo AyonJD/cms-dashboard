@@ -52,12 +52,12 @@ export default function OrderForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData); 
+        console.log(formData);
     };
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Kitchen | Order Form">
+            <Page title="CMS | Order Form">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Paper sx={{ p: 0 }}>
                         <CustomCard>

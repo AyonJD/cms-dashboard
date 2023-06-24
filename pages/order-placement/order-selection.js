@@ -37,7 +37,7 @@ export default function OrderSelection() {
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Kitchen | Order Selection">
+            <Page title="CMS | Order Selection">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Box
                         sx={{

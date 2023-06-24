@@ -72,7 +72,7 @@ export default function MainNavbar() {
                 >
                     <Box>
                         <Typography variant='h4' >
-                            Kitchen
+                            CMS
                         </Typography>
 
                         <Typography variant='span' sx={{ fontFamily: 'Saira Condensed, sans-serif', fontWeight: 'bold' }}>

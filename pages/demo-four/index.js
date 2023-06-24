@@ -90,7 +90,7 @@ export default function DemoFour() {
     return (
         <>
             <MainNavbar />
-            <Page title="Kitchen | Demo Four">
+            <Page title="CMS | Demo Four">
                 <RootStyle>
                     <Container>
                         <MotionInView variants={varFadeInUp}>

@@ -38,7 +38,7 @@ export default function Gallery() {
     return (
         <>
             <MainNavbar />
-            <Page title="Kitchen | Gallery">
+            <Page title="CMS | Gallery">
                 <RootStyle>
                     <Container>
                         <MotionInView variants={varFadeInDown}>

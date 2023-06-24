@@ -22,7 +22,7 @@ export default function OrderBreakdown() {
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Kitchen | Order Breakdown">
+            <Page title="CMS | Order Breakdown">
                 <Container maxWidth={themeStretch ? false : "xl"}>
                     <Paper sx={{ p: 0 }}>
                         <MotionInView variants={varFadeInLeft}>

@@ -79,7 +79,7 @@ export default function DemoThree() {
     return (
         <>
             <MainNavbar />
-            <Page title="Kitchen | Demo Three">
+            <Page title="CMS | Demo Three">
                 <RootStyle>
                     <Container>
                         <MotionInView variants={varFadeInUp}>

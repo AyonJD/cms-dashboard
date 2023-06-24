@@ -79,7 +79,7 @@ export default function DemoOne() {
     return (
         <>
             <MainNavbar />
-            <Page title="Kitchen | Demo One">
+            <Page title="CMS | Demo One">
                 <RootStyle>
                     <Container>
                         <MotionInView variants={varFadeInUp}>

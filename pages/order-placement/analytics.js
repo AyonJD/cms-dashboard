@@ -13,7 +13,7 @@ export default function Analytics() {
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Kitchen | Analytics">
+            <Page title="CMS | Analytics">
                 <Container maxWidth={themeStretch ? false : "xl"}>
                     <Paper sx={{ p: 0 }}>
                         <CustomCard>

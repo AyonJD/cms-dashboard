@@ -34,7 +34,7 @@ export default function Analytics() {
 
     return (
         <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
-            <Page title="Kitchen | Analytics">
+            <Page title="CMS | Analytics">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Box sx={{
                         mb: 3, display: 'flex', justifyContent: 'space-between', gap: 5,

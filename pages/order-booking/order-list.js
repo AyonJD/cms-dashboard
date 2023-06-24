@@ -11,7 +11,7 @@ export default function OrderList() {
     const { themeStretch } = useSettings();
     return (
         <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
-            <Page title="Kitchen | Order List">
+            <Page title="CMS | Order List">
                 <Container maxWidth={themeStretch ? false : "xl"}>
                     <Paper sx={{ p: 0 }}>
                         <CustomCard sx={{ width: 'auto', overflowX: 'auto' }}>

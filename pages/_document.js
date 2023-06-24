@@ -44,7 +44,7 @@ export default class MyDocument extends Document {
           />
           <meta
             name='description'
-            content='Test your favorite food recipes with Kitchen. A free, responsive web application template built with React and Material-UI.'
+            content='Test your favorite food recipes with CMS. A free, responsive web application template built with React and Material-UI.'
           />
           <meta
             name='keywords'

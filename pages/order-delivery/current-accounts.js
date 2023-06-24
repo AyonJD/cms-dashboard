@@ -26,7 +26,7 @@ export default function CurrentAccounts() {
 
     return (
         <DashboardLayout sideBarConfig={demoThreeSidebarConfig} >
-            <Page title="Kitchen | Current Accounts">
+            <Page title="CMS | Current Accounts">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <MotionInView variants={varFadeInDown}>
                         <CustomCard>

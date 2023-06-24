@@ -39,7 +39,7 @@ export default function LandingSlider() {
     return (
         <>
             <MainNavbar />
-            <Page title="Kitchen | Landing Slider">
+            <Page title="CMS | Landing Slider">
                 <RootStyle>
                     <Container>
                         <SwiperAutoSlider />
