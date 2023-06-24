@@ -9,6 +9,7 @@ import Radio from '@mui/material/Radio';
 import CustomCard from 'src/components/card/CustomCard';
 import { ButtonAnimate, MotionInView, varFadeInDown } from 'src/components/animate';
 import BasicTable from 'src/components/_external-pages/table/BasicTable';
+import demoThreeSidebarConfig from 'src/layouts/config/demoThreeSidebarConfig';
 
 export default function Invoice() {
     const { themeStretch } = useSettings();
@@ -49,7 +50,7 @@ export default function Invoice() {
     };
 
     return (
-        <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
+        <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
             <Page title="CMS | Invoice">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Paper sx={{ p: 0 }}>
