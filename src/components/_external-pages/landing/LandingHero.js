@@ -15,6 +15,7 @@ import {
   varWrapEnter,
   varFadeInRight,
   varZoomIn,
+  varFadeInDown,
 } from '../../animate';
 
 // ----------------------------------------------------------------------
@@ -176,15 +177,15 @@ export default function LandingHero() {
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
             {/* Logo */}
-            <motion.img
+            {/* <motion.img
               style={{ width: 200, height: 200, cursor: 'pointer' }}
               variants={varZoomIn}
               src='/static/brand/logo.png'
               alt='hero'
-            />
+            /> */}
 
             {/* Main heading */}
-            <motion.div variants={varFadeInUp} style={{ marginTop: 0 }}>
+            <motion.div variants={varFadeInDown} style={{ marginTop: 0 }}>
               <Typography variant='h1' sx={{ color: 'common.white' }}>
                 CMS
               </Typography>

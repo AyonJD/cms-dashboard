@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import NextLink from 'next/link';
 
 // ----------------------------------------------------------------------
@@ -16,7 +16,10 @@ const Logo = forwardRef(({ sx }, ref) => {
   return (
     <Box ref={ref} sx={{ width: 40, height: 40, cursor: 'pointer', ...sx }}>
       <NextLink href="/" passHref>
-        <img src="/static/brand/logo.png" alt="" />
+        {/* <img src="/static/brand/logo.png" alt="" /> */}
+        <Typography variant="h3" sx={{fontFamily: 'Saira Condensed, sans-serif', color: PRIMARY_MAIN }}>
+          CMS
+        </Typography>
       </NextLink>
     </Box>
   );
