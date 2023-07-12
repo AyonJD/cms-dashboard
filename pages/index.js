@@ -8,6 +8,8 @@ import {
   LandingHero
 } from 'src/components/_external-pages/landing';
 import LandingOfferedSolutions from 'src/components/_external-pages/landing/LandingOfferedSolutions';
+import { useEffect, useState } from 'react';
+import CustomLoadingScreen from 'src/components/CustomLoadingScreen';
 
 // ----------------------------------------------------------------------
 
@@ -24,6 +26,20 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function LandingPage() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return <CustomLoadingScreen />
+  }
+
   return (
     <MainLayout>
       <RootStyle

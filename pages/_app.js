@@ -21,7 +21,6 @@ import createEmotionCache from 'src/utils/createEmotionCache';
 import Settings from 'src/components/settings';
 import RtlLayout from 'src/components/RtlLayout';
 import ProgressBar from 'src/components/ProgressBar';
-import LoadingScreen from 'src/components/LoadingScreen';
 import ThemePrimaryColor from 'src/components/ThemePrimaryColor';
 // Global css
 import '../styles/global.css'
@@ -52,7 +51,6 @@ export default function MyApp(props) {
                 </NoSsr> */}
                 <GlobalStyles />
                 <ProgressBar />
-                <LoadingScreen />
                 <Component {...pageProps} />
               </RtlLayout>
             </ThemePrimaryColor>
