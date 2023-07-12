@@ -46,9 +46,9 @@ export default function MyApp(props) {
           <ThemeConfig>
             <ThemePrimaryColor>
               <RtlLayout>
-                {/* <NoSsr>
+                <NoSsr>
                   <Settings />
-                </NoSsr> */}
+                </NoSsr>
                 <GlobalStyles />
                 <ProgressBar />
                 <Component {...pageProps} />

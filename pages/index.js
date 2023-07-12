@@ -1,27 +1,26 @@
 // layouts
-import MainLayout from 'src/layouts/main';
+import MainLayout from 'src/layouts/main'
 // material
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles'
 // components
-import Page from 'src/components/Page';
-import {
-  LandingHero
-} from 'src/components/_external-pages/landing';
-import LandingOfferedSolutions from 'src/components/_external-pages/landing/LandingOfferedSolutions';
-import { useEffect, useState } from 'react';
-import CustomLoadingScreen from 'src/components/CustomLoadingScreen';
+import Page from 'src/components/Page'
+import { LandingHero } from 'src/components/_external-pages/landing'
+import LandingOfferedSolutions from 'src/components/_external-pages/landing/LandingOfferedSolutions'
+import { useEffect, useState } from 'react'
+import CustomLoadingScreen from 'src/components/CustomLoadingScreen'
+import { Toaster } from 'react-hot-toast'
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(Page)({
   height: '100%',
-});
+})
 
 const ContentStyle = styled('div')(({ theme }) => ({
   overflow: 'hidden',
   position: 'relative',
   backgroundColor: theme.palette.background.default,
-}));
+}))
 
 // ----------------------------------------------------------------------
 
@@ -41,16 +40,17 @@ export default function LandingPage() {
   }
 
   return (
-    <MainLayout>
-      <RootStyle
-        title='CMS'
-        id='move_top'
-      >
-        <LandingHero />
-        <ContentStyle>
-          <LandingOfferedSolutions />
-        </ContentStyle>
-      </RootStyle>
-    </MainLayout>
-  );
+    <>
+      <MainLayout>
+        <RootStyle title="CMS" id="move_top">
+          <LandingHero />
+          <ContentStyle>
+            <LandingOfferedSolutions />
+            <LandingOfferedSolutions />
+          </ContentStyle>
+        </RootStyle>
+      </MainLayout>
+      <Toaster />
+    </>
+  )
 }

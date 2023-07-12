@@ -54,7 +54,7 @@ export default function Settings() {
 
       <Box
         sx={{
-          top: 12,
+          top: 0,
           bottom: 12,
           right: 0,
           position: 'fixed',
@@ -68,7 +68,7 @@ export default function Settings() {
             px: '4px',
             mt: -3,
             left: -44,
-            top: '50%',
+            top: '5%',
             color: 'grey.800',
             position: 'absolute',
             bgcolor: 'common.white',
