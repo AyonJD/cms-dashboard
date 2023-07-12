@@ -155,6 +155,8 @@ export default function LandingOfferedSolutions() {
           <motion.div variants={varFadeInRight}>
             <Typography
               sx={{
+                display: 'inline-block',
+                textAlign: 'justify',
                 marginTop: 4,
                 marginBottom: 4,
                 marginRight: {
