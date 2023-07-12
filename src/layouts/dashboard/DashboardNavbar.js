@@ -10,6 +10,7 @@ import {
   Toolbar,
   IconButton,
   Typography,
+  Button,
 } from '@mui/material'
 // hooks
 import useCollapseDrawer from '../../hooks/useCollapseDrawer'
@@ -17,6 +18,7 @@ import useCollapseDrawer from '../../hooks/useCollapseDrawer'
 import { MHidden } from '../../components/@material-extend'
 import { useTheme } from '@mui/material/styles'
 import AccountPopover from './AccountPopover'
+import { useRouter } from 'next/router'
 
 // ----------------------------------------------------------------------
 
@@ -51,6 +53,7 @@ DashboardNavbar.propTypes = {
 }
 
 export default function DashboardNavbar({ onOpenSidebar }) {
+  const router = useRouter()
   const { isCollapse } = useCollapseDrawer()
   const theme = useTheme()
 
@@ -82,11 +85,16 @@ export default function DashboardNavbar({ onOpenSidebar }) {
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
 
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={{ xs: 0.5, sm: 1.5 }}
-        >
+        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 2 }}>
+          <Button sx={{ color: 'text.primary' }}>Contact Us</Button>
+
+          <Button
+            onClick={() => router.push('/auth/login')}
+            variant="contained"
+            sx={{ color: '#fff' }}
+          >
+            Login
+          </Button>
           {/* <LanguagePopover />
           <NotificationsPopover /> */}
           <AccountPopover />
