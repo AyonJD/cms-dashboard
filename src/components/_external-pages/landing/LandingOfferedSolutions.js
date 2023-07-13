@@ -145,7 +145,7 @@ export default function LandingOfferedSolutions() {
               <Typography
                 component="span"
                 variant="h1"
-                sx={{ color: 'info.main' }}
+                sx={{ color: 'primary.main' }}
               >
                 &nbsp;CMS
               </Typography>

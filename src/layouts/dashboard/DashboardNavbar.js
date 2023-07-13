@@ -86,7 +86,12 @@ export default function DashboardNavbar({ onOpenSidebar }) {
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 2 }}>
-          <Button sx={{ color: 'text.primary' }}>Contact Us</Button>
+          <Button
+            onClick={() => router.push('/contact-us')}
+            sx={{ color: 'text.primary' }}
+          >
+            Contact Us
+          </Button>
 
           <Button
             onClick={() => router.push('/auth/login')}

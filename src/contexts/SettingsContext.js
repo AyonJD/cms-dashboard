@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import { createContext } from 'react';
+import PropTypes from 'prop-types'
+import { createContext } from 'react'
 // hooks
-import useLocalStorage from '../hooks/useLocalStorage';
+import useLocalStorage from '../hooks/useLocalStorage'
 // theme
-import palette from '../theme/palette';
+import palette from '../theme/palette'
 
 // ----------------------------------------------------------------------
 
@@ -66,14 +66,14 @@ const PRIMARY_COLOR = [
   // Own
   {
     name: 'own',
-    lighter: '#2d9bfc',
-    light: '#1890FF',
-    main: '#1890FF',
-    dark: '#0c8dff',
+    lighter: '#34346D',
+    light: '#34346D',
+    main: '#34346D',
+    dark: '#5A5794',
     darker: '#0c8dff',
     contrastText: '#fff',
-  }
-];
+  },
+]
 
 SetColor.propTypes = {
   themeColor: PropTypes.oneOf([
@@ -85,41 +85,41 @@ SetColor.propTypes = {
     'orange',
     'red',
   ]),
-};
+}
 
 function SetColor(themeColor) {
-  let color;
-  const DEFAULT = PRIMARY_COLOR[0];
-  const PURPLE = PRIMARY_COLOR[1];
-  const CYAN = PRIMARY_COLOR[2];
-  const BLUE = PRIMARY_COLOR[3];
-  const ORANGE = PRIMARY_COLOR[4];
-  const RED = PRIMARY_COLOR[5];
-  const OWN = PRIMARY_COLOR[6];
+  let color
+  const DEFAULT = PRIMARY_COLOR[0]
+  const PURPLE = PRIMARY_COLOR[1]
+  const CYAN = PRIMARY_COLOR[2]
+  const BLUE = PRIMARY_COLOR[3]
+  const ORANGE = PRIMARY_COLOR[4]
+  const RED = PRIMARY_COLOR[5]
+  const OWN = PRIMARY_COLOR[6]
 
   switch (themeColor) {
     case 'purple':
-      color = PURPLE;
-      break;
+      color = PURPLE
+      break
     case 'cyan':
-      color = CYAN;
-      break;
+      color = CYAN
+      break
     case 'blue':
-      color = BLUE;
-      break;
+      color = BLUE
+      break
     case 'orange':
-      color = ORANGE;
-      break;
+      color = ORANGE
+      break
     case 'red':
-      color = RED;
-      break;
+      color = RED
+      break
     case 'own':
-      color = OWN;
-      break;
+      color = OWN
+      break
     default:
-      color = DEFAULT;
+      color = DEFAULT
   }
-  return color;
+  return color
 }
 
 const initialState = {
@@ -127,19 +127,19 @@ const initialState = {
   themeDirection: 'ltr',
   themeColor: 'own',
   themeStretch: false,
-  onChangeMode: () => { },
-  onChangeDirection: () => { },
-  onChangeColor: () => { },
-  onToggleStretch: () => { },
+  onChangeMode: () => {},
+  onChangeDirection: () => {},
+  onChangeColor: () => {},
+  onToggleStretch: () => {},
   setColor: PRIMARY_COLOR[0],
   colorOption: [],
-};
+}
 
-const SettingsContext = createContext(initialState);
+const SettingsContext = createContext(initialState)
 
 SettingsProvider.propTypes = {
   children: PropTypes.node,
-};
+}
 
 function SettingsProvider({ children }) {
   const [settings, setSettings] = useLocalStorage('settings', {
@@ -147,35 +147,35 @@ function SettingsProvider({ children }) {
     themeDirection: initialState.themeDirection,
     themeColor: initialState.themeColor,
     themeStretch: initialState.themeStretch,
-  });
+  })
 
-  const onChangeMode = (event) => {
+  const onChangeMode = event => {
     setSettings({
       ...settings,
       themeMode: event.target.value,
-    });
-  };
+    })
+  }
 
-  const onChangeDirection = (event) => {
+  const onChangeDirection = event => {
     setSettings({
       ...settings,
       themeDirection: event.target.value,
-    });
-  };
+    })
+  }
 
-  const onChangeColor = (event) => {
+  const onChangeColor = event => {
     setSettings({
       ...settings,
       themeColor: event.target.value,
-    });
-  };
+    })
+  }
 
   const onToggleStretch = () => {
     setSettings({
       ...settings,
       themeStretch: !settings.themeStretch,
-    });
-  };
+    })
+  }
 
   return (
     <SettingsContext.Provider
@@ -188,7 +188,7 @@ function SettingsProvider({ children }) {
         // Color
         onChangeColor,
         setColor: SetColor(settings.themeColor),
-        colorOption: PRIMARY_COLOR.map((color) => ({
+        colorOption: PRIMARY_COLOR.map(color => ({
           name: color.name,
           value: color.main,
         })),
@@ -198,7 +198,7 @@ function SettingsProvider({ children }) {
     >
       {children}
     </SettingsContext.Provider>
-  );
+  )
 }
 
-export { SettingsProvider, SettingsContext };
+export { SettingsProvider, SettingsContext }

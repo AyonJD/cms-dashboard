@@ -47,7 +47,7 @@ export default function LandingDetails() {
               <Typography
                 component="span"
                 variant="h1"
-                sx={{ color: 'info.main' }}
+                sx={{ color: 'primray.main' }}
               >
                 &nbsp;CMS
               </Typography>
