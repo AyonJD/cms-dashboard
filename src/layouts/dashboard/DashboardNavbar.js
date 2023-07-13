@@ -11,6 +11,8 @@ import {
   IconButton,
   Typography,
   Button,
+  Menu,
+  MenuItem,
 } from '@mui/material'
 // hooks
 import useCollapseDrawer from '../../hooks/useCollapseDrawer'
@@ -19,6 +21,7 @@ import { MHidden } from '../../components/@material-extend'
 import { useTheme } from '@mui/material/styles'
 import AccountPopover from './AccountPopover'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 // ----------------------------------------------------------------------
 
@@ -57,6 +60,15 @@ export default function DashboardNavbar({ onOpenSidebar }) {
   const { isCollapse } = useCollapseDrawer()
   const theme = useTheme()
 
+  const [anchorEl, setAnchorEl] = useState(null)
+  const open = Boolean(anchorEl)
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
   return (
     <RootStyle
       sx={{
@@ -84,6 +96,50 @@ export default function DashboardNavbar({ onOpenSidebar }) {
           Seamless Selection Made Easy
         </Typography>
         <Box sx={{ flexGrow: 1 }} />
+
+        <Button
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
+        >
+          Our Services
+        </Button>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          <MenuItem
+            onClick={() => {
+              handleClose()
+              router.push('/order-placement/order-form')
+            }}
+          >
+            Order Placement
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose()
+              router.push('/order-booking/select-product')
+            }}
+          >
+            Order Booking
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose()
+              router.push('/order-delivery/select-product')
+            }}
+          >
+            Order Delivery
+          </MenuItem>
+        </Menu>
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 2 }}>
           <Button
