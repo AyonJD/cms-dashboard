@@ -65,11 +65,7 @@ export default function LandingHero() {
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <HeroOverlayStyle
-          alt="overlay"
-          src="/static/overlay.svg"
-          variants={varFadeIn}
-        />
+        <div className="hero_background"></div>
 
         {/* Background Image---------------------- */}
 
