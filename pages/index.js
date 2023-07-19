@@ -8,7 +8,7 @@ import { LandingHero } from 'src/components/_external-pages/landing'
 import LandingOfferedSolutions from 'src/components/_external-pages/landing/LandingOfferedSolutions'
 import { useEffect, useState } from 'react'
 import CustomLoadingScreen from 'src/components/CustomLoadingScreen'
-import { Toaster } from 'react-hot-toast'
+
 import LandingDetails from 'src/components/_external-pages/landing/LandingDetails'
 
 // ----------------------------------------------------------------------
@@ -51,7 +51,7 @@ export default function LandingPage() {
           </ContentStyle>
         </RootStyle>
       </MainLayout>
-      <Toaster />
+      
     </>
   )
 }

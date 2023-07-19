@@ -17,12 +17,15 @@ import { toast } from 'react-hot-toast'
 import CustomCard from 'src/components/card/CustomCard'
 import LoginIcon from '@mui/icons-material/Login'
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety'
+import Page from 'src/components/Page'
+import { useState } from 'react'
+import { loginEmail, loginPass } from 'src/constant/constant'
 
 const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  backgroundImage: 'url("/static/hero_bg.jpg")',
+  justifyContent: 'flex-end',
+  backgroundImage: 'url("/static/old.jpg")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   height: '100vh',
@@ -49,8 +52,8 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   width: '70px',
   height: '70px',
   borderRadius: '50%',
-  backgroundColor: 'rgba(255, 255, 255, 0.4)',
-  backdropFilter: 'blur(10px)',
+  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  backdropFilter: 'blur(6px)',
   boxShadow: '0px 4px 24px rgba(0, 0, 0, 0.25)',
   border: '2px solid #fff',
   zIndex: '9',
@@ -58,8 +61,25 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 export default function Login() {
   const router = useRouter()
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const handleChange = e => {
+    const { name, value } = e.target
+    setLoginData(prev => ({ ...prev, [name]: value }))
+  }
 
   const handleLogin = () => {
+    if (loginData.email !== loginEmail) {
+      toast.error('Wrong Email address')
+      return
+    }
+    if (loginData.password !== loginPass) {
+      toast.error('Incorrect Password')
+      return
+    }
     toast.success('Login successful')
     setStorage('demo_token', '12345678')
     setTimeout(() => {
@@ -69,6 +89,7 @@ export default function Login() {
 
   return (
     <RootStyle>
+      <Page title="CMS | Login" />
       <LoginFormStyle>
         <IconWrapperStyle>
           <HealthAndSafetyIcon sx={{ fontSize: 35 }} />
@@ -76,8 +97,8 @@ export default function Login() {
         <Container maxWidth="sm">
           <CustomCard
             sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.4)',
-              backdropFilter: 'blur(10px)',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(6px)',
               boxShadow: '0px 4px 24px rgba(0, 0, 0, 0.25)',
             }}
           >
@@ -98,6 +119,8 @@ export default function Login() {
                 fullWidth
                 label="Email address"
                 type="email"
+                name="email"
+                onChange={e => handleChange(e)}
                 autoComplete="email"
                 autoFocus
                 sx={{
@@ -112,6 +135,8 @@ export default function Login() {
               <TextField
                 label="Password"
                 type="password"
+                name="password"
+                onChange={e => handleChange(e)}
                 autoComplete="current-password"
                 sx={{
                   mb: 3,
