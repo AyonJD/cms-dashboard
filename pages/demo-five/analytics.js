@@ -27,6 +27,7 @@ import {
   varFadeInUp,
 } from 'src/components/animate'
 import AccountsCard from 'src/components/_external-pages/AccountAnalytics'
+import demoFiveSidebarConfig from 'src/layouts/config/demoFiveSidebarConfig'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -42,14 +43,14 @@ export default function Analytics() {
   const { themeStretch } = useSettings()
 
   const PRODUCT = [
-    'Product 1',
-    'Product 2',
-    'Product 3',
-    'Product 4',
-    'Product 5',
-    'Product 6',
-    'Product 7',
-    'Product 8',
+    'Myelography',
+    'Electromyography',
+    'CT scan',
+    'Blood test',
+    'Ultrasound',
+    'Complete blood count',
+    'Electrocardiography',
+    'Angiogram',
   ]
   const UNIT = [
     '1 Unit',
@@ -69,8 +70,8 @@ export default function Analytics() {
   })
 
   return (
-    <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
-      <Page title="Kitchen | Analytics">
+    <DashboardLayout sideBarConfig={demoFiveSidebarConfig}>
+      <Page title="CMS | Analytics">
         <Container maxWidth={themeStretch ? false : 'xl'}>
           <AccountsCard />
 
@@ -89,7 +90,7 @@ export default function Analytics() {
                 sx={{ width: 380, marginLeft: 'auto', marginRight: 'auto' }}
               >
                 <CardHeader
-                  title="Todays Sales"
+                  title="Todays Analytics"
                   titleTypographyProps={{
                     sx: {
                       mb: 2.5,
@@ -142,7 +143,7 @@ export default function Analytics() {
                 }}
               >
                 <CardHeader
-                  title="Sold Product Analysis"
+                  title="Test Analysis"
                   titleTypographyProps={{
                     sx: {
                       mb: 2.5,

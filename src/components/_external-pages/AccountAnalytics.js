@@ -16,7 +16,7 @@ import GroupsIcon from '@mui/icons-material/Groups'
 const salesData = [
   {
     stats: '$10k',
-    title: 'Total Sales',
+    title: 'Total Revinew',
     color: 'success',
     icon: <AttachMoneyIcon sx={{ fontSize: '1.75rem' }} />,
   },
@@ -29,7 +29,7 @@ const salesData = [
   {
     stats: '20.2k',
     color: 'info',
-    title: 'Customer Per Day',
+    title: 'Patient Per Day',
     icon: <GroupsIcon sx={{ fontSize: '1.75rem' }} />,
   },
 ]
@@ -65,7 +65,7 @@ const AccountsCard = () => {
     <>
       <Card>
         <CardHeader
-          title="Shop Analytics"
+          title="Analytics Summery"
           subheader={
             <>
               <Typography variant="body2" sx={{ marginBottom: 2 }}>
@@ -73,7 +73,10 @@ const AccountsCard = () => {
                   component="span"
                   sx={{ fontWeight: 600, color: 'text.primary' }}
                 >
-                  December 2022
+                  {new Date().toLocaleDateString('en-US', {
+                    month: 'long',
+                    year: 'numeric',
+                  })}
                 </Box>{' '}
                 summary
               </Typography>

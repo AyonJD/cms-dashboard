@@ -56,8 +56,8 @@ const SOLUTION_URL = [
   '/order-placement/patient-service-form',
   '/order-booking/book-service',
   '/order-delivery/select-product',
-  '/',
-  '/',
+  '/demo-four/analytics',
+  '/demo-five/analytics',
   '/',
 ]
 const SOLUTION_ICON = [
