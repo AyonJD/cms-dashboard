@@ -1,4 +1,4 @@
-import { Box, Container, Paper } from '@mui/material'
+import { Box, Container, Paper, Typography } from '@mui/material'
 import { useRef } from 'react'
 import Page from 'src/components/Page'
 import CustomCountUp from 'src/components/_external-pages/count-up/CustomCountUp'
@@ -18,7 +18,7 @@ export default function OrderBreakdown() {
   const { themeStretch } = useSettings()
 
   const COUNT_TITLE = ['Total Accounts', 'Paid Accounts', 'Due Accounts']
-  const COUNT = [90, 59, 31]
+  const COUNT = [1000, 1000, 1000]
   const countData = [...Array(3)].map((_, index) => ({
     count: COUNT[index],
     countTitle: COUNT_TITLE[index],
@@ -30,6 +30,13 @@ export default function OrderBreakdown() {
         <Container maxWidth={themeStretch ? false : 'xl'}>
           <Paper sx={{ p: 0 }}>
             <MotionInView variants={varFadeInLeft}>
+              <Typography variant='h5' sx={{ textAlign: 'center', marginBottom: 2, marginTop:3 }}>
+                {new Date().toLocaleDateString('en-US', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </Typography>
               <CustomCard sx={{ background: '#22255C' }}>
                 <Box
                   sx={{

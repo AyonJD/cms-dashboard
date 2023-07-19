@@ -1,85 +1,79 @@
 // material
-import { Table, TableRow, TableHead, TableBody, TableCell, TableContainer } from '@mui/material';
+import {
+  Table,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+  TableContainer,
+} from '@mui/material'
 // components
-import Scrollbar from '../../Scrollbar';
+import Scrollbar from '../../Scrollbar'
 
 // ----------------------------------------------------------------------
 
-function createData(product, unit, staff, status, date = new Date().toLocaleDateString()) {
-    return { product, unit, date, staff, status };
+function createData(service, unit, staff, status, date) {
+  return { service, unit, date, staff, status }
 }
 
 const BASIC_TABLE = [
-    createData('Frozen yoghurt', 2, 'Staff One', 'Pending'),
-    createData('Ice cream sandwich', 1, 'Staff Two', 'Served'),
-    createData('Eclair', 4, 'Staff One', 'Accepted'),
-    createData('Cupcake', 2, 'Staff four', 'Pending'),
-    createData('Gingerbread', 8, 'Staff Three', 'Served')
-];
+  createData('Blood Test', 2, 'Staff One', 'Pending', '7/10/2023'),
+  createData('Diabetes panel', 1, 'Staff Two', 'In Process', '7/14/2023'),
+  createData('ECG', 1, 'Staff One', 'Completed', '7/15/2023'),
+  createData('X-Ray', 1, 'Staff four', 'Completed', '7/18/2023'),
+  createData('MRI', 1, 'Staff Three', 'Completed', '7/20/2023'),
+]
 
 // ----------------------------------------------------------------------
 
 export default function BasicTable({ tableData }) {
-    const rows = tableData ? tableData : BASIC_TABLE;
-    return (
-        <Scrollbar>
-            <TableContainer sx={{ minWidth: 800, mt: 3 }}>
-                <Table>
-                    <TableHead>
-                        {
-                            tableData ? (
-                                <TableRow>
-                                    <TableCell>Serial</TableCell>
-                                    <TableCell>Product</TableCell>
-                                    <TableCell align="center">Unit</TableCell>
-                                    <TableCell align="right">Price</TableCell>
-                                    <TableCell align="right">Total</TableCell>
-                                </TableRow>
-                            ) : (
-                                <TableRow>
-                                    <TableCell>Product</TableCell>
-                                    <TableCell align="center">Unit</TableCell>
-                                    <TableCell align="right">Staff</TableCell>
-                                    <TableCell align="right">Date</TableCell>
-                                    <TableCell align="right">Status</TableCell>
-                                </TableRow>
-                            )
-                        }
-
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row, index) => (
-                            <TableRow key={row.index}>
-                                {
-                                    tableData && (
-                                        <TableCell>
-                                            {index + 1}
-                                        </TableCell>
-                                    )
-                                }
-                                <TableCell>
-                                    {row.product}
-                                </TableCell>
-                                <TableCell align="center">{row.unit}</TableCell>
-                                {
-                                    tableData ? (
-                                        <>
-                                            <TableCell align="right">{row.price}</TableCell>
-                                            <TableCell align="right">{row.total}</TableCell>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <TableCell align="right">{row.staff}</TableCell>
-                                            <TableCell align="right">{row.date}</TableCell>
-                                            <TableCell align="right">{row.status}</TableCell>
-                                        </>
-                                    )
-                                }
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Scrollbar>
-    );
+  const rows = tableData ? tableData : BASIC_TABLE
+  return (
+    <Scrollbar>
+      <TableContainer sx={{ minWidth: 800, mt: 3 }}>
+        <Table>
+          <TableHead>
+            {tableData ? (
+              <TableRow>
+                <TableCell>Serial</TableCell>
+                <TableCell>Service</TableCell>
+                <TableCell align="center">Unit</TableCell>
+                <TableCell align="right">Price</TableCell>
+                <TableCell align="right">Total</TableCell>
+              </TableRow>
+            ) : (
+              <TableRow>
+                <TableCell>Service</TableCell>
+                <TableCell align="center">Unit</TableCell>
+                <TableCell align="right">Assigned Staff</TableCell>
+                <TableCell align="right">Date</TableCell>
+                <TableCell align="right">Status</TableCell>
+              </TableRow>
+            )}
+          </TableHead>
+          <TableBody>
+            {rows.map((row, index) => (
+              <TableRow key={row.index}>
+                {tableData && <TableCell>{index + 1}</TableCell>}
+                <TableCell>{row.service}</TableCell>
+                <TableCell align="center">{row.unit}</TableCell>
+                {tableData ? (
+                  <>
+                    <TableCell align="right">{row.price}</TableCell>
+                    <TableCell align="right">{row.total}</TableCell>
+                  </>
+                ) : (
+                  <>
+                    <TableCell align="right">{row.staff}</TableCell>
+                    <TableCell align="right">{row.date}</TableCell>
+                    <TableCell align="right">{row.status}</TableCell>
+                  </>
+                )}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Scrollbar>
+  )
 }
