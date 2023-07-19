@@ -22,6 +22,7 @@ import { useTheme } from '@mui/material/styles'
 import AccountPopover from './AccountPopover'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { useMediaQuery } from '@mui/material'
 
 // ----------------------------------------------------------------------
 
@@ -59,6 +60,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
   const router = useRouter()
   const { isCollapse } = useCollapseDrawer()
   const theme = useTheme()
+  const isXsScreen = useMediaQuery(theme => theme.breakpoints.down('xs'))
 
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
@@ -114,6 +116,10 @@ export default function DashboardNavbar({ onOpenSidebar }) {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
+          sx={{
+            color: 'text.primary',
+            ...(isXsScreen ? { fontSize: '0.75rem', padding: '0.5rem' } : {}),
+          }}
         >
           Solutions
         </Button>
@@ -155,27 +161,34 @@ export default function DashboardNavbar({ onOpenSidebar }) {
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 2 }}>
           <Button
             onClick={() => router.push('/#details')}
-            sx={{ color: 'text.primary' }}
+            sx={{
+              color: 'text.primary',
+              ...(isXsScreen ? { fontSize: '0.75rem', padding: '0.5rem' } : {}),
+            }}
           >
             Details
           </Button>
-          
+
           <Button
             onClick={() => router.push('/contact-us')}
-            sx={{ color: 'text.primary' }}
+            sx={{
+              color: 'text.primary',
+              ...(isXsScreen ? { fontSize: '0.75rem', padding: '0.5rem' } : {}),
+            }}
           >
-            Contact Us
+            Contact
           </Button>
 
           <Button
             onClick={() => router.push('/auth/login')}
             variant="contained"
-            sx={{ color: '#fff' }}
+            sx={{
+              color: '#fff',
+              ...(isXsScreen ? { fontSize: '0.75rem', padding: '0.5rem' } : {}),
+            }}
           >
             Login
           </Button>
-          {/* <LanguagePopover />
-          <NotificationsPopover /> */}
           <AccountPopover />
         </Stack>
       </ToolbarStyle>
