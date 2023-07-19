@@ -51,7 +51,6 @@ export default function LandingPage() {
           </ContentStyle>
         </RootStyle>
       </MainLayout>
-      
     </>
   )
 }

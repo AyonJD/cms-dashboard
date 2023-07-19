@@ -35,15 +35,32 @@ import { toast } from 'react-hot-toast'
 
 // ----------------------------------------------------------------------
 
-const SOLUTIONTITLE = ['Order Placement', 'Order Booking', 'Order Delivery']
+const SOLUTIONTITLE = [
+  'Order Placement',
+  'Order Booking',
+  'Order Delivery',
+  'Demo Four',
+  'Demo Five',
+  'Demo Six',
+]
 const SOLUTION_URL = [
   '/order-placement/order-form',
   '/order-booking/select-product',
   '/order-delivery/select-product',
+  '/',
+  '/',
+  '/',
 ]
-const SOLUTION_ICON = [MedicationLiquidIcon, HealingIcon, LocalPharmacyIcon]
+const SOLUTION_ICON = [
+  MedicationLiquidIcon,
+  HealingIcon,
+  LocalPharmacyIcon,
+  LocalPharmacyIcon,
+  LocalPharmacyIcon,
+  LocalPharmacyIcon,
+]
 
-const SOLUtION_ITEMS = [...Array(3)].map((_, index) => ({
+const SOLUtION_ITEMS = [...Array(6)].map((_, index) => ({
   title: SOLUTIONTITLE[index],
   icon: SOLUTION_ICON[index],
   url: SOLUTION_URL[index],
@@ -58,48 +75,6 @@ const RootStyle = styled('div')(({ theme }) => ({
     paddingBottom: theme.spacing(15),
   },
 }))
-
-// ----------------------------------------------------------------------
-
-// function SolutionsCard({ solution, cardIndex }) {
-//     const theme = useTheme();
-//     const { title, icon } = solution;
-
-//     const isLight = theme.palette.mode === 'light';
-
-//     return (
-//         <Card
-//             sx={{
-//                 cursor: 'pointer',
-//                 p: 5,
-//                 boxShadow: (theme) =>
-//                     `0px 48px 80px ${alpha(
-//                         isLight ? theme.palette.grey[500] : theme.palette.common.black,
-//                         0.12
-//                     )}`,
-//                 ...(cardIndex === 1 && {
-//                     boxShadow: (theme) =>
-//                         `0px 48px 80px ${alpha(
-//                             isLight ? theme.palette.grey[500] : theme.palette.common.black,
-//                             0.48
-//                         )}`,
-//                 }),
-//             }}
-//         >
-//             <Stack spacing={5}>
-//                 <div>
-//                     <Typography
-//                         variant='overline'
-//                         sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
-//                     >
-//                         LICENSE
-//                     </Typography>
-//                     <Typography variant='h4'>{title}</Typography>
-//                 </div>
-//             </Stack>
-//         </Card>
-//     );
-// }
 
 export default function LandingOfferedSolutions() {
   const [token, setToken] = useState(null)
@@ -130,47 +105,48 @@ export default function LandingOfferedSolutions() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          flexDirection: {
-            xs: 'column',
-            sm: 'column',
-            md: 'row',
-          },
+          flexDirection: 'column',
         }}
       >
-        <Box>
-          <motion.div variants={varFadeInRight}>
-            <Typography variant="h1">
-              Start your <br />
-              new journey <br /> with
-              <Typography
-                component="span"
-                variant="h1"
-                sx={{ color: 'primary.main' }}
-              >
-                &nbsp;CMS
+        <Grid container spacing={2}>
+          <Grid item xs={12} sx={{ textAlign: 'center' }}>
+            <motion.div variants={varFadeInRight}>
+              <Typography variant="h1">
+                Start your new <br />
+                journey with
+                <Typography
+                  component="span"
+                  variant="h1"
+                  sx={{ color: 'primary.main' }}
+                >
+                  &nbsp;CMS
+                </Typography>
               </Typography>
-            </Typography>
-          </motion.div>
+            </motion.div>
 
-          <motion.div variants={varFadeInRight}>
-            <Typography
-              sx={{
-                display: 'inline-block',
-                textAlign: 'justify',
-                marginTop: 4,
-                marginBottom: 4,
-                marginRight: {
-                  xs: 0,
-                  sm: 0,
-                  md: 4,
-                },
-              }}
-            >
-              CMS is a platform that allows you to place orders, book orders and
-              deliver orders.
-            </Typography>
-          </motion.div>
-        </Box>
+            <motion.div variants={varFadeInRight}>
+              <Typography
+                sx={{
+                  display: 'inline-block',
+                  textAlign: 'justify',
+                  marginTop: 4,
+                  marginBottom: 4,
+                  width: {
+                    xs: '90%',
+                    sm: '70%',
+                    md: '50%',
+                  },
+                  marginRight: 'auto',
+                  marginLeft: 'auto',
+                }}
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+                culpa quo quis animi earum illo pariatur labore magnam with
+                consectetur earum!
+              </Typography>
+            </motion.div>
+          </Grid>
+        </Grid>
 
         <Grid container spacing={5}>
           {SOLUtION_ITEMS.map((item, index) => (
@@ -178,8 +154,8 @@ export default function LandingOfferedSolutions() {
               onClick={() => handleRedirect(item.url)}
               key={index}
               item
-              xs={12}
-              md={index === 2 ? 12 : 6}
+              xs={6}
+              sm={4}
             >
               <MotionInView
                 variants={
