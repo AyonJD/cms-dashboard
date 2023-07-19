@@ -53,7 +53,6 @@ export default function LandingPage() {
 
   if (!token) {
     router.push('/auth/login')
-    return
   }
 
   return (
