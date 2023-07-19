@@ -21,8 +21,9 @@ import { MHidden } from '../../components/@material-extend'
 import { useTheme } from '@mui/material/styles'
 import AccountPopover from './AccountPopover'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from '@mui/material'
+import { getStorage, removeStorage } from 'api/useStorage'
 
 // ----------------------------------------------------------------------
 
@@ -58,12 +59,21 @@ DashboardNavbar.propTypes = {
 
 export default function DashboardNavbar({ onOpenSidebar }) {
   const router = useRouter()
+  const [token, setToken] = useState(null)
   const { isCollapse } = useCollapseDrawer()
   const theme = useTheme()
   const isXsScreen = useMediaQuery(theme => theme.breakpoints.down('xs'))
 
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
+
+  useEffect(() => {
+    const token = getStorage('demo_token')
+    if (token) {
+      setToken(token)
+    }
+  }, [])
+
   const handleClick = event => {
     setAnchorEl(event.currentTarget)
   }
@@ -178,17 +188,37 @@ export default function DashboardNavbar({ onOpenSidebar }) {
           >
             Contact
           </Button>
+          {token ? (
+            <Button
+              onClick={() => {
+                removeStorage('demo_token')
+                router.push('/auth/login')
+              }}
+              variant="contained"
+              sx={{
+                color: '#fff',
+                ...(isXsScreen
+                  ? { fontSize: '0.75rem', padding: '0.5rem' }
+                  : {}),
+              }}
+            >
+              Logout
+            </Button>
+          ) : (
+            <Button
+              onClick={() => router.push('/auth/login')}
+              variant="contained"
+              sx={{
+                color: '#fff',
+                ...(isXsScreen
+                  ? { fontSize: '0.75rem', padding: '0.5rem' }
+                  : {}),
+              }}
+            >
+              Login
+            </Button>
+          )}
 
-          <Button
-            onClick={() => router.push('/auth/login')}
-            variant="contained"
-            sx={{
-              color: '#fff',
-              ...(isXsScreen ? { fontSize: '0.75rem', padding: '0.5rem' } : {}),
-            }}
-          >
-            Login
-          </Button>
           <AccountPopover />
         </Stack>
       </ToolbarStyle>
