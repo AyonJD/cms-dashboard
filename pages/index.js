@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react'
 import CustomLoadingScreen from 'src/components/CustomLoadingScreen'
 
 import LandingDetails from 'src/components/_external-pages/landing/LandingDetails'
+import { getStorage } from 'api/useStorage'
+import { useRouter } from 'next/router'
 
 // ----------------------------------------------------------------------
 
@@ -27,6 +29,15 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function LandingPage() {
   const [isLoading, setIsLoading] = useState(true)
+  const [token, setToken] = useState(null)
+  const router = useRouter()
+
+  useEffect(() => {
+    const token = getStorage('demo_token')
+    if (token) {
+      setToken(token)
+    }
+  }, [])
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,6 +49,11 @@ export default function LandingPage() {
 
   if (isLoading) {
     return <CustomLoadingScreen />
+  }
+
+  if (!token) {
+    router.push('/auth/login')
+    return
   }
 
   return (
