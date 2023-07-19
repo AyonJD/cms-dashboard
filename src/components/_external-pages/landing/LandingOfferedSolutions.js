@@ -43,6 +43,16 @@ const SOLUTIONTITLE = [
   'Demo Five',
   'Demo Six',
 ]
+
+const SOLUTION_SUB_TITLE = [
+  'Lorem ipsum dolor sit, amet consectetur.',
+  'Lorem ipsum dolor sit, amet consectetur.',
+  'Lorem ipsum dolor sit, amet consectetur.',
+  'Lorem ipsum dolor sit, amet consectetur.',
+  'Lorem ipsum dolor sit, amet consectetur.',
+  'Lorem ipsum dolor sit, amet consectetur.',
+]
+
 const SOLUTION_URL = [
   '/order-placement/order-form',
   '/order-booking/select-product',
@@ -62,6 +72,7 @@ const SOLUTION_ICON = [
 
 const SOLUtION_ITEMS = [...Array(6)].map((_, index) => ({
   title: SOLUTIONTITLE[index],
+  subTitle: SOLUTION_SUB_TITLE[index],
   icon: SOLUTION_ICON[index],
   url: SOLUTION_URL[index],
 }))
@@ -154,7 +165,7 @@ export default function LandingOfferedSolutions() {
               onClick={() => handleRedirect(item.url)}
               key={index}
               item
-              xs={6}
+              xs={12}
               sm={4}
             >
               <MotionInView
@@ -162,8 +173,13 @@ export default function LandingOfferedSolutions() {
                   index === 0 || index === 1 ? varFadeInDown : varFadeInUp
                 }
               >
-                <CustomCard cardIndex={index}>
-                  <Stack spacing={5}>
+                <CustomCard cardIndex={index} sx={{
+                  height: {
+                    xs: 180,
+                    sm: 260,
+                    md: 200,
+                } }}>
+                  <Stack spacing={2}>
                     <div
                       style={{
                         display: 'flex',
@@ -176,8 +192,17 @@ export default function LandingOfferedSolutions() {
                         sx={{ color: 'primary.main' }}
                         style={{ fontSize: 50, mb: 2 }}
                       />
-                      <Typography sx={{ color: 'primary.main' }} variant="h4">
+                      <Typography
+                        sx={{ color: 'primary.main', textAlign: 'center' }}
+                        variant="h4"
+                      >
                         {item.title}
+                      </Typography>
+                      <Typography
+                        sx={{ color: 'primary.main', textAlign: 'center' }}
+                        variant="body2"
+                      >
+                        {item.subTitle}
                       </Typography>
                     </div>
                   </Stack>
