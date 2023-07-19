@@ -93,3 +93,23 @@
   background-position: left left !important;
   background-size: cover !important;
 }
+
+@media (min-width: 600px) {
+  .custom-card-grid {
+    flex-basis: 33.33333%;
+    max-width: 33.33333%;
+  }
+}
+
+.custom-card-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.custom-card-grid .motionInViewDiv {
+  width: 100%;
+}
+
+.custom-card-grid .motionInViewDiv > div {
+  height: 260px;
+}

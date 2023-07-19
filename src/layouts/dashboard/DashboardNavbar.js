@@ -92,7 +92,18 @@ export default function DashboardNavbar({ onOpenSidebar }) {
         </MHidden>
 
         {/* <Searchbar /> */}
-        <Typography variant="h6" sx={{ flexGrow: 1, color: 'text.primary' }}>
+        <Typography
+          variant="h6"
+          sx={{
+            flexGrow: 1,
+            color: 'text.primary',
+            display: {
+              xs: 'none',
+              sm: 'none',
+              md: 'inline-block',
+            },
+          }}
+        >
           Seamless Selection Made Easy
         </Typography>
         <Box sx={{ flexGrow: 1 }} />

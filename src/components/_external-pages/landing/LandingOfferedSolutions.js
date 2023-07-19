@@ -45,12 +45,12 @@ const SOLUTIONTITLE = [
 ]
 
 const SOLUTION_SUB_TITLE = [
-  'Lorem ipsum dolor sit, amet consectetur.',
-  'Lorem ipsum dolor sit, amet consectetur.',
-  'Lorem ipsum dolor sit, amet consectetur.',
-  'Lorem ipsum dolor sit, amet consectetur.',
-  'Lorem ipsum dolor sit, amet consectetur.',
-  'Lorem ipsum dolor sit, amet consectetur.',
+  'Lorem ipsum dolor sit',
+  'Lorem ipsum dolor sit',
+  'Lorem ipsum dolor sit',
+  'Lorem ipsum dolor sit',
+  'Lorem ipsum dolor sit',
+  'Lorem ipsum dolor sit',
 ]
 
 const SOLUTION_URL = [
@@ -159,62 +159,94 @@ export default function LandingOfferedSolutions() {
           </Grid>
         </Grid>
 
-        <Grid container spacing={5}>
+        <Grid container spacing={3} sx={{ maxWidth: '800px', mt:3 }}>
           {SOLUtION_ITEMS.map((item, index) => (
             <Grid
               onClick={() => handleRedirect(item.url)}
               key={index}
               item
               xs={12}
-              sm={4}
+              sm={6}
+              md={4}
             >
               <MotionInView
                 variants={
                   index === 0 || index === 1 ? varFadeInDown : varFadeInUp
                 }
               >
-                <CustomCard
-                  cardIndex={index}
-                  sx={{
-                    height: {
-                      xs: 180,
-                      sm: 260,
-                      md: 200,
-                    },
-                    borderRadius: 5,
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(6px)',
-                    border: '1px solid #34346D',
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '100%',
                   }}
                 >
-                  <Stack spacing={2}>
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <item.icon
-                        sx={{ color: 'primary.main' }}
-                        style={{ fontSize: 50, mb: 2 }}
-                      />
-                      <Typography
-                        sx={{ color: 'primary.main', textAlign: 'center' }}
-                        variant="h4"
+                  <CustomCard
+                    cardIndex={index}
+                    sx={{
+                      borderRadius: '50%',
+                      width: {
+                        xs: '50%',
+                        sm: '60%',
+                        md: '80%',
+                      },
+                      paddingTop: {
+                        xs: '38%',
+                        sm: '45%',
+                        md: '65%',
+                      },
+                      position: 'relative',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      backdropFilter: 'blur(6px)',
+                      border: '1px solid #34346D',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <Stack spacing={2}>
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          position: 'absolute',
+                          top: '50%',
+                          left: '50%',
+                          transform: 'translate(-50%, -50%)',
+                          width: '100%',
+                          textAlign: 'center',
+                        }}
                       >
-                        {item.title}
-                      </Typography>
-                      <Typography
-                        sx={{ color: 'primary.main', textAlign: 'center' }}
-                        variant="body2"
-                      >
-                        {item.subTitle}
-                      </Typography>
-                    </div>
-                  </Stack>
-                </CustomCard>
+                        <item.icon
+                          sx={{ color: 'primary.main' }}
+                          style={{ fontSize: 50, mb: 2 }}
+                        />
+                        <Typography
+                          sx={{
+                            color: 'primary.main',
+                          }}
+                          variant="h4"
+                        >
+                          {item.title}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: 'primary.main',
+                            fontSize: {
+                              xs: 10,
+                              sm: 12,
+                              md: 14,
+                            },
+                          }}
+                          variant="body2"
+                        >
+                          {item.subTitle}
+                        </Typography>
+                      </div>
+                    </Stack>
+                  </CustomCard>
+                </div>
               </MotionInView>
             </Grid>
           ))}
