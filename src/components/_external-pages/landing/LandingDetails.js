@@ -1,12 +1,10 @@
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 // material
 import { styled, alpha } from '@mui/material/styles'
 import { Box, Grid, Stack, Container, Typography } from '@mui/material'
 //
 import {
-  varFadeInUp,
-  MotionInView,
-  varFadeInDown,
   varFadeInRight,
 } from '../../animate'
 import CustomCard from 'src/components/card/CustomCard'
@@ -23,9 +21,20 @@ const RootStyle = styled('div')(({ theme }) => ({
 }))
 
 export default function LandingDetails() {
+  const detailsRef = useRef(null)
+
+  useEffect(() => {
+    if (window.location.hash === '#details') {
+      detailsRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [])
+
+
   return (
     <RootStyle>
       <Container
+        ref={detailsRef}
+        id="details"
         sx={{
           display: 'flex',
           justifyContent: 'space-between',

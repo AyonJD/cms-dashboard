@@ -115,7 +115,7 @@ export default function DashboardNavbar({ onOpenSidebar }) {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          Our Services
+          Solutions
         </Button>
         <Menu
           id="basic-menu"
@@ -153,6 +153,13 @@ export default function DashboardNavbar({ onOpenSidebar }) {
         </Menu>
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 2 }}>
+          <Button
+            onClick={() => router.push('/#details')}
+            sx={{ color: 'text.primary' }}
+          >
+            Details
+          </Button>
+          
           <Button
             onClick={() => router.push('/contact-us')}
             sx={{ color: 'text.primary' }}
