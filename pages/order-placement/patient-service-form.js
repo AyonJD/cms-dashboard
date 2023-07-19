@@ -26,9 +26,11 @@ import {
   varFadeInDown,
 } from 'src/components/animate'
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation'
+import { Router, useRouter } from 'next/router'
 
 export default function OrderForm() {
   const { themeStretch } = useSettings()
+  const router = useRouter()
 
   const [formData, setFormData] = useState({
     orderId: '',
@@ -290,7 +292,7 @@ export default function OrderForm() {
                             xs: 'column',
                             sm: 'row',
                           },
-                          mt:2
+                          mt: 2,
                         }}
                       >
                         <Grid
@@ -457,6 +459,14 @@ export default function OrderForm() {
                             variant="contained"
                             color="primary"
                             sx={{ mr: 1, padding: '8px 0', color: '#fff' }}
+                            onClick={() =>
+                              router.push(
+                                window.open(
+                                  `/invoice/${new Date().getMilliseconds()}`,
+                                  '_blank'
+                                )
+                              )
+                            }
                           >
                             Print
                           </Button>
