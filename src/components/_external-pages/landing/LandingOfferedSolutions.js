@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import NextLink from 'next/link'
 // material
 import { useTheme, styled, alpha } from '@mui/material/styles'
 import {
@@ -54,7 +53,7 @@ const SOLUTION_SUB_TITLE = [
 ]
 
 const SOLUTION_URL = [
-  '/order-placement/order-form',
+  '/order-placement/patient-service-form',
   '/order-booking/select-product',
   '/order-delivery/select-product',
   '/',
