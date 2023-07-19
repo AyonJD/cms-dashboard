@@ -36,79 +36,87 @@ export default function Schedule() {
     const hours = Array.from({ length: 13 }, (_, index) => index + 10);
 
     return (
-        <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
-            <Page title="CMS | Schedule">
-                <Container maxWidth={themeStretch ? false : "xl"}>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} md={6}>
-                            <MotionInView variants={varFadeInLeft}>
-                                <CustomCard sx={{
-                                    minHeight: {
-                                        xs: 'auto',
-                                        sm: 'auto',
-                                        md: '446px'
-                                    }
-                                }}>
-                                    <Typography variant="h5" gutterBottom>
-                                        {selectedDate ? selectedDate.toDateString() : new Date().toDateString()}
-                                    </Typography>
-                                    <Typography variant="subtitle1">
-                                        Day:{" "}
-                                        {selectedDate ?
-                                            selectedDate.toLocaleDateString(undefined, {
-                                                weekday: "long",
-                                            }) : new Date().toLocaleDateString(undefined, {
-                                                weekday: "long",
-                                            })
-                                        }
-                                    </Typography>
-                                    <FormControl fullWidth sx={{ marginTop: 4, marginBottom: 2 }}>
-                                        <InputLabel>Select Hour</InputLabel>
-                                        <Select
-                                            value={selectedHours}
-                                            onChange={handleHourChange}
-                                            multiple={true}
-                                            label="Select Hour"
-                                        >
-                                            {hours.map((hour) => (
-                                                <MenuItem key={hour} value={hour}>
-                                                    {`${convertTo12HourFormat(hour)} ${hour >= 12 ? "PM" : "AM"
-                                                        }`}
-                                                </MenuItem>
-                                            ))}
-                                        </Select>
-                                    </FormControl>
-                                    {selectedHours.map((hour) => (
-                                        <Grid sx={{ marginBottom: 2 }} item xs={12} key={hour}>
-                                            <TextField
-                                                label={`${convertTo12HourFormat(hour)} ${hour >= 12 ? "PM" : "AM"
-                                                    }`}
-                                                fullWidth
-                                                variant="outlined"
-                                                multiline
-                                                rows={4}
-                                                placeholder={`Enter your schedule for ${convertTo12HourFormat(
-                                                    hour
-                                                )} ${hour >= 12 ? "PM" : "AM"
-                                                    }`}
-                                            />
-                                        </Grid>
-                                    ))}
-                                </CustomCard>
-                            </MotionInView>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <MotionInView variants={varFadeInRight}>
-                                <CustomCard>
-                                    <Paper sx={{ p: 2 }}>
-                                        <Calendar handleDateChange={handleDateChange} />
-                                    </Paper>
-                                </CustomCard>
-                            </MotionInView>
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Page>
-        </DashboardLayout>
-    );
+      <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
+        <Page title="CMS | Schedule Service Hour">
+          <Container maxWidth={themeStretch ? false : 'xl'}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <MotionInView variants={varFadeInLeft}>
+                  <CustomCard
+                    sx={{
+                      minHeight: {
+                        xs: 'auto',
+                        sm: 'auto',
+                        md: '446px',
+                      },
+                    }}
+                  >
+                    <Typography variant="h5" gutterBottom>
+                      {selectedDate
+                        ? selectedDate.toDateString()
+                        : new Date().toDateString()}
+                    </Typography>
+                    <Typography variant="subtitle1">
+                      Day:{' '}
+                      {selectedDate
+                        ? selectedDate.toLocaleDateString(undefined, {
+                            weekday: 'long',
+                          })
+                        : new Date().toLocaleDateString(undefined, {
+                            weekday: 'long',
+                          })}
+                    </Typography>
+                    <FormControl
+                      fullWidth
+                      sx={{ marginTop: 4, marginBottom: 2 }}
+                    >
+                      <InputLabel>Select Hour</InputLabel>
+                      <Select
+                        value={selectedHours}
+                        onChange={handleHourChange}
+                        multiple={true}
+                        label="Select Hour"
+                      >
+                        {hours.map(hour => (
+                          <MenuItem key={hour} value={hour}>
+                            {`${convertTo12HourFormat(hour)} ${
+                              hour >= 12 ? 'PM' : 'AM'
+                            }`}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                    {selectedHours.map(hour => (
+                      <Grid sx={{ marginBottom: 2 }} item xs={12} key={hour}>
+                        <TextField
+                          label={`${convertTo12HourFormat(hour)} ${
+                            hour >= 12 ? 'PM' : 'AM'
+                          }`}
+                          fullWidth
+                          variant="outlined"
+                          multiline
+                          rows={4}
+                          placeholder={`Enter your schedule for ${convertTo12HourFormat(
+                            hour
+                          )} ${hour >= 12 ? 'PM' : 'AM'}`}
+                        />
+                      </Grid>
+                    ))}
+                  </CustomCard>
+                </MotionInView>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <MotionInView variants={varFadeInRight}>
+                  <CustomCard>
+                    <Paper sx={{ p: 2 }}>
+                      <Calendar handleDateChange={handleDateChange} />
+                    </Paper>
+                  </CustomCard>
+                </MotionInView>
+              </Grid>
+            </Grid>
+          </Container>
+        </Page>
+      </DashboardLayout>
+    )
 }

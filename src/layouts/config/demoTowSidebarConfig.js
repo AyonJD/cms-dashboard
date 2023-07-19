@@ -24,12 +24,12 @@ const demoTwoSidebarConfig = [
     icon: ICONS.dashboard,
   },
   {
-    title: 'Schedule',
+    title: 'Schedule Service Hour',
     path: '/order-booking/schedule',
     icon: ICONS.ecommerce,
   },
   {
-    title: 'Order List',
+    title: 'User View',
     path: '/order-booking/order-list',
     icon: ICONS.analytics,
   },
