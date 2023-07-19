@@ -1,4 +1,4 @@
-import { Container, Paper } from '@mui/material'
+import { Container, Paper, Typography } from '@mui/material'
 import Page from 'src/components/Page'
 import SortingSelecting from 'src/components/_external-pages/table/sorting'
 import { MotionInView, varFadeInDown } from 'src/components/animate'
@@ -73,12 +73,42 @@ const TABLE_HEAD = [
 ]
 
 export default function DeliveryLog() {
-  const { themeStretch } = useSettings()
+    const { themeStretch } = useSettings()
+
+    const openPDF = () => {
+      const pdfUrl = '/static/pdf.pdf'
+      window.open(pdfUrl, '_blank')
+    }
   return (
     <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
       <Page title="CMS | Delivery Log">
         <Container maxWidth={themeStretch ? false : 'xl'}>
           <Paper sx={{ p: 0 }}>
+            <CustomCard sx={{ mb: 2 }}>
+              <Typography  mb={1} variant="h5">
+                You have 2 new reports
+              </Typography>
+              <Typography
+              onClick={openPDF}
+                sx={{
+                  display: 'inline-block',
+                  width: '100%',
+                }}
+                variant="body2"
+              >
+                1. Myelography FTB (Tested on 3rd July, 2023)
+              </Typography>
+              <Typography
+              onClick={openPDF}
+                sx={{
+                  display: 'inline-block',
+                  width: '100%',
+                }}
+                variant="body2"
+              >
+                2. CT scan (Tested on 2nd July, 2023)
+              </Typography>
+            </CustomCard>
             <CustomCard sx={{ width: 'auto', overflowX: 'auto' }}>
               <MotionInView variants={varFadeInDown}>
                 <SortingSelecting
