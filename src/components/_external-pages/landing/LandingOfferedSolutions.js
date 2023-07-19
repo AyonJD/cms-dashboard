@@ -54,7 +54,7 @@ const SOLUTION_SUB_TITLE = [
 
 const SOLUTION_URL = [
   '/order-placement/patient-service-form',
-  '/order-booking/select-product',
+  '/order-booking/book-service',
   '/order-delivery/select-product',
   '/',
   '/',

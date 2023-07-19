@@ -27,6 +27,7 @@ import {
 } from 'src/components/animate'
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation'
 import { Router, useRouter } from 'next/router'
+import { testData } from 'src/constant/constant'
 
 export default function OrderForm() {
   const { themeStretch } = useSettings()
@@ -56,21 +57,6 @@ export default function OrderForm() {
   })
   const [selectedTestCategory, setSelectedTestCategory] = useState('')
   const [selectedTestName, setSelectedTestName] = useState('')
-
-  const testData = [
-    {
-      testCategory: 'Cardiology',
-      testName: ['Electrocardiography', 'Cardiac stress test', 'Angiogram'],
-    },
-    {
-      testCategory: 'Neurology',
-      testName: ['Myelography', 'Electromyography', 'CT scan'],
-    },
-    {
-      testCategory: 'Pediatrics',
-      testName: ['Blood test', 'Ultrasound', 'Complete blood count'],
-    },
-  ]
 
   const handleSelectChange = event => {
     const { name, value } = event.target

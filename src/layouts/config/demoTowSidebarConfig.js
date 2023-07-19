@@ -19,8 +19,8 @@ const ICONS = {
 
 const demoTwoSidebarConfig = [
   {
-    title: 'Select Product',
-    path: '/order-booking/select-product', // order from
+    title: 'Book Service',
+    path: '/order-booking/book-service',
     icon: ICONS.dashboard,
   },
   {

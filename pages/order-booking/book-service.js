@@ -8,14 +8,14 @@ import DashboardLayout from "src/layouts/dashboard";
 export default function SelectProduct() {
     const { themeStretch } = useSettings();
     return (
-        <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
-            <Page title="CMS | Select Product">
-                <Container maxWidth={themeStretch ? false : "xl"}>
-                    <Paper sx={{ p: 0 }}>
-                        <SelectProductForm />
-                    </Paper>
-                </Container>
-            </Page>
-        </DashboardLayout >
+      <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
+        <Page title="CMS | Book Service">
+          <Container maxWidth={themeStretch ? false : 'xl'}>
+            <Paper sx={{ p: 0 }}>
+              <SelectProductForm />
+            </Paper>
+          </Container>
+        </Page>
+      </DashboardLayout>
     )
 }
