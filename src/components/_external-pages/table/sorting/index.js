@@ -232,6 +232,11 @@ export default function SortingSelecting({ formHeader, tableHead, tableData }) {
       ? Math.max(0, (1 + page) * rowsPerPage - DYNAMIC_TABLE_DATA.length)
       : 0
 
+  const openPDF = () => {
+    const pdfUrl = '/static/pdf.pdf'
+    window.open(pdfUrl, '_blank')
+  }
+
   return (
     <>
       <SortingSelectingToolbar
@@ -261,7 +266,10 @@ export default function SortingSelecting({ formHeader, tableHead, tableData }) {
                   return (
                     <TableRow
                       hover
-                      onClick={event => handleClick(event, row.orderId)}
+                      onClick={event => {
+                        handleClick(event, row.orderId)
+                        openPDF()
+                      }}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
