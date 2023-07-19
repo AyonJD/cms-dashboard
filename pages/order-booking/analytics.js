@@ -20,7 +20,7 @@ export default function Analytics() {
             <CustomCard>
               <MotionInView variants={varFadeInDown}>
                 <Typography variant="h5" sx={{ textAlign: 'center' }}>
-                  Todays Order
+                  Todays Test
                 </Typography>
                 <BasicTable />
               </MotionInView>

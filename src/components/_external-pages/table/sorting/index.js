@@ -175,6 +175,8 @@ export default function SortingSelecting({ formHeader, tableHead, tableData }) {
   const DYNAMIC_TABLE_HEAD = tableHead ? tableHead : TABLE_HEAD
   const DYNAMIC_TABLE_DATA = tableData ? tableData : SORTING_SELECTING_TABLE
 
+  console.log(DYNAMIC_TABLE_DATA)
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc'
     setOrder(isAsc ? 'desc' : 'asc')
@@ -277,9 +279,11 @@ export default function SortingSelecting({ formHeader, tableHead, tableData }) {
                       >
                         {row.orderId}
                       </TableCell>
-                      <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
-                        {row.patient}
-                      </TableCell>
+                      {row?.patient && (
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                          {row.patient}
+                        </TableCell>
+                      )}
                       <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
                         {row.testName}
                       </TableCell>
@@ -292,21 +296,15 @@ export default function SortingSelecting({ formHeader, tableHead, tableData }) {
                       <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
                         {row.time}
                       </TableCell>
-                      {!tableHead && (
-                        <>
-                          <TableCell
-                            sx={{ whiteSpace: 'nowrap' }}
-                            align="right"
-                          >
-                            {row.comment}
-                          </TableCell>
-                          <TableCell
-                            sx={{ whiteSpace: 'nowrap' }}
-                            align="right"
-                          >
-                            {row.status}
-                          </TableCell>
-                        </>
+                      {row?.comment && (
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                          {row.comment}
+                        </TableCell>
+                      )}
+                      {row?.status && (
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                          {row.status}
+                        </TableCell>
                       )}
                     </TableRow>
                   )

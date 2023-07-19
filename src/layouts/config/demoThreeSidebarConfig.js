@@ -19,12 +19,12 @@ const ICONS = {
 
 const demoThreeSidebarConfig = [
   {
-    title: 'Select Product',
+    title: 'Previous Tests',
     path: '/order-delivery/select-product', // order from
     icon: ICONS.dashboard,
   },
   {
-    title: 'Invoice',
+    title: 'Current Invoice',
     path: '/order-delivery/invoice',
     icon: ICONS.ecommerce,
   },
