@@ -1,68 +1,96 @@
-import { Container, Paper } from "@mui/material";
-import Page from "src/components/Page";
-import SortingSelecting from "src/components/_external-pages/table/sorting";
-import { MotionInView, varFadeInDown } from "src/components/animate";
-import CustomCard from "src/components/card/CustomCard";
-import useSettings from "src/hooks/useSettings";
-import demoThreeSidebarConfig from "src/layouts/config/demoThreeSidebarConfig";
-import DashboardLayout from "src/layouts/dashboard";
+import { Container, Paper } from '@mui/material'
+import Page from 'src/components/Page'
+import SortingSelecting from 'src/components/_external-pages/table/sorting'
+import { MotionInView, varFadeInDown } from 'src/components/animate'
+import CustomCard from 'src/components/card/CustomCard'
+import useSettings from 'src/hooks/useSettings'
+import demoThreeSidebarConfig from 'src/layouts/config/demoThreeSidebarConfig'
+import DashboardLayout from 'src/layouts/dashboard'
 
-function createData(orderId, customer, orderItem, totalPrice) {
-    return { orderId, customer, orderItem, totalPrice };
+function createData(
+  orderId,
+  testName,
+  deliveryDate,
+  totalPaid,
+  totalDue,
+  status
+) {
+  return { orderId, testName, deliveryDate, totalPaid, totalDue, status }
 }
 
 const SORTING_SELECTING_TABLE = [
-    createData('1234', 'John Doe', 'Dhaka', new Date().toLocaleDateString()),
-    createData('8754', 'Alex', 'Khulna', new Date().toLocaleDateString()),
-    createData('5792', 'Selena', 'Dhaka', new Date().toLocaleDateString()),
-    createData('8473', 'Alex', 'Dhaka', new Date().toLocaleDateString()),
-    createData('9724', 'Sakib', 'Dhaka', new Date().toLocaleDateString()),
-    createData('5784', 'Kashem', 'Dhaka', new Date().toLocaleDateString()),
-    createData('7846', 'Sakib', 'Dhaka', new Date().toLocaleDateString())
-];
+  createData(
+    '1234',
+    'CT scan',
+    new Date().toLocaleDateString(),
+    2000,
+    300,
+    'In process'
+  ),
+  createData('8754', 'Blood Test', '7/15/2023', 200, 100, 'In process'),
+  createData('5792', 'Ultrasound', '7/17/2023', 1500, 500, 'Delivered'),
+  createData('8473', 'ECG', '7/20/2023', 3000, 400, 'Delivered'),
+  createData('9724', 'MRI', '7/21/2023', 7000, 1000, 'Delivered'),
+]
 
 const TABLE_HEAD = [
-    {
-        id: 'orderId',
-        numeric: false,
-        disablePadding: true,
-        label: 'Delivery Id'
-    },
-    {
-        id: 'customer',
-        numeric: true,
-        disablePadding: false,
-        label: 'Customer'
-    },
-    {
-        id: 'orderItem',
-        numeric: true,
-        disablePadding: false,
-        label: 'Address'
-    },
-    {
-        id: 'totalPrice',
-        numeric: true,
-        disablePadding: false,
-        label: 'Order Date'
-    }
-];
+  {
+    id: 'orderId',
+    numeric: false,
+    disablePadding: true,
+    label: 'Delivery Id',
+  },
+  {
+    id: 'testName',
+    numeric: false,
+    disablePadding: true,
+    label: 'Test',
+  },
+  {
+    id: 'deliveryDate',
+    numeric: false,
+    disablePadding: true,
+    label: 'Date',
+  },
+  {
+    id: 'totalPaid',
+    numeric: true,
+    disablePadding: true,
+    label: 'Total Paid',
+  },
+  {
+    id: 'totalDue',
+    numeric: true,
+    disablePadding: true,
+    label: 'Total Due',
+  },
+  {
+    id: 'status',
+    numeric: true,
+    disablePadding: true,
+    label: 'Status',
+  },
+]
 
 export default function DeliveryLog() {
-    const { themeStretch } = useSettings();
-    return (
-        <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
-            <Page title="CMS | Delivery Log">
-                <Container maxWidth={themeStretch ? false : "xl"}>
-                    <Paper sx={{ p: 0 }}>
-                        <CustomCard sx={{ width: 'auto', overflowX: 'auto' }}>
-                            <MotionInView variants={varFadeInDown}>
-                                <SortingSelecting formHeader="Delivery Log" tableHead={TABLE_HEAD} tableData={SORTING_SELECTING_TABLE} />
-                            </MotionInView>
-                        </CustomCard>
-                    </Paper>
-                </Container>
-            </Page>
-        </DashboardLayout >
-    )
+  const { themeStretch } = useSettings()
+  return (
+    <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
+      <Page title="CMS | Delivery Log">
+        <Container maxWidth={themeStretch ? false : 'xl'}>
+          <Paper sx={{ p: 0 }}>
+            <CustomCard sx={{ width: 'auto', overflowX: 'auto' }}>
+              <MotionInView variants={varFadeInDown}>
+                <SortingSelecting
+                  formHeader="Delivery Log"
+                  tableHead={TABLE_HEAD}
+                  tableData={SORTING_SELECTING_TABLE}
+                />
+              </MotionInView>
+            </CustomCard>
+          </Paper>
+        </Container>
+      </Page>
+    </DashboardLayout>
+  )
 }

@@ -12,8 +12,8 @@ import Scrollbar from '../../Scrollbar'
 
 // ----------------------------------------------------------------------
 
-function createData(service, unit, staff, status, date) {
-  return { service, unit, date, staff, status }
+function createData(test, unit, staff, status, date) {
+  return { test, unit, date, staff, status }
 }
 
 const BASIC_TABLE = [
@@ -36,14 +36,14 @@ export default function BasicTable({ tableData }) {
             {tableData ? (
               <TableRow>
                 <TableCell>Serial</TableCell>
-                <TableCell>Service</TableCell>
+                <TableCell>Test</TableCell>
                 <TableCell align="center">Unit</TableCell>
                 <TableCell align="right">Price</TableCell>
                 <TableCell align="right">Total</TableCell>
               </TableRow>
             ) : (
               <TableRow>
-                <TableCell>Service</TableCell>
+                <TableCell>Test</TableCell>
                 <TableCell align="center">Unit</TableCell>
                 <TableCell align="right">Assigned Staff</TableCell>
                 <TableCell align="right">Date</TableCell>
@@ -55,7 +55,7 @@ export default function BasicTable({ tableData }) {
             {rows.map((row, index) => (
               <TableRow key={row.index}>
                 {tableData && <TableCell>{index + 1}</TableCell>}
-                <TableCell>{row.service}</TableCell>
+                <TableCell>{row.test}</TableCell>
                 <TableCell align="center">{row.unit}</TableCell>
                 {tableData ? (
                   <>

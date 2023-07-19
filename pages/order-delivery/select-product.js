@@ -27,8 +27,8 @@ const SORTING_SELECTING_TABLE = [
     'Blood Test'
   ),
   createData('8754', 900, '7/15/2023', '12 PM', ' In process', 'CT scan'),
-  createData('5792', 1800, '7/10/2023', '08 AM', 'Completed', 'Ultrasound'),
-  createData('7944', 350, '7/18/2023', '05 PM', 'Pending', 'ECG'),
+  createData('5792', 1800, '7/10/2023', '08 AM', 'Delivered', 'Ultrasound'),
+  createData('7944', 350, '7/18/2023', '05 PM', 'Delivered', 'ECG'),
 ]
 
 const TABLE_HEAD = [
@@ -80,7 +80,7 @@ export default function SelectProduct() {
             <SortingSelecting
               tableHead={TABLE_HEAD}
               tableData={SORTING_SELECTING_TABLE}
-              formHeader="User View "
+              formHeader="Previous Tests"
             />
           </Paper>
         </Container>

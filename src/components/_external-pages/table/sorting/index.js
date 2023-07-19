@@ -280,29 +280,43 @@ export default function SortingSelecting({ formHeader, tableHead, tableData }) {
                         {row.orderId}
                       </TableCell>
                       {row?.patient && (
-                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
                           {row.patient}
                         </TableCell>
                       )}
-                      <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                      <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
                         {row.testName}
                       </TableCell>
-                      <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
-                        {row.totalPrice}
-                      </TableCell>
-                      <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                      {row?.totalPrice && (
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
+                          {row.totalPrice}
+                        </TableCell>
+                      )}
+                      <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
                         {row.deliveryDate}
                       </TableCell>
-                      <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
-                        {row.time}
-                      </TableCell>
+                      {row?.time && (
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
+                          {row.time}
+                        </TableCell>
+                      )}
+                      {row?.totalPaid && (
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
+                          {row.totalPaid}
+                        </TableCell>
+                      )}
+                      {row?.totalDue && (
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
+                          {row.totalDue}
+                        </TableCell>
+                      )}
                       {row?.comment && (
-                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
                           {row.comment}
                         </TableCell>
                       )}
                       {row?.status && (
-                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="right">
+                        <TableCell sx={{ whiteSpace: 'nowrap' }} align="center">
                           {row.status}
                         </TableCell>
                       )}

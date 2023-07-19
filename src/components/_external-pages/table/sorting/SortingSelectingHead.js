@@ -44,7 +44,7 @@ export default function SortingSelectingHead({
           {headLabel.map(headCell => (
             <TableCell
               key={headCell.id}
-              align={headCell.numeric ? 'right' : 'left'}
+              align={'center'}
               padding={headCell.disablePadding ? 'none' : 'normal'}
               sortDirection={orderBy === headCell.id ? order : false}
               sx={{ whiteSpace: 'nowrap' }}
