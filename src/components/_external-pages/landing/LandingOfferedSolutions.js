@@ -173,12 +173,20 @@ export default function LandingOfferedSolutions() {
                   index === 0 || index === 1 ? varFadeInDown : varFadeInUp
                 }
               >
-                <CustomCard cardIndex={index} sx={{
-                  height: {
-                    xs: 180,
-                    sm: 260,
-                    md: 200,
-                } }}>
+                <CustomCard
+                  cardIndex={index}
+                  sx={{
+                    height: {
+                      xs: 180,
+                      sm: 260,
+                      md: 200,
+                    },
+                    borderRadius: 5,
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    backdropFilter: 'blur(6px)',
+                    border: '1px solid #34346D',
+                  }}
+                >
                   <Stack spacing={2}>
                     <div
                       style={{
