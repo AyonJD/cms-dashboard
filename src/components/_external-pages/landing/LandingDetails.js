@@ -1,12 +1,11 @@
 import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 // material
-import { styled, alpha } from '@mui/material/styles'
-import { Box, Grid, Stack, Container, Typography } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import { Box, Container, Typography, useMediaQuery } from '@mui/material'
 //
-import {
-  varFadeInRight,
-} from '../../animate'
+import { varFadeInRight } from '../../animate'
+import Image from 'next/image'
 import CustomCard from 'src/components/card/CustomCard'
 
 // ----------------------------------------------------------------------
@@ -29,7 +28,6 @@ export default function LandingDetails() {
     }
   }, [])
 
-
   return (
     <RootStyle>
       <Container
@@ -46,42 +44,103 @@ export default function LandingDetails() {
           },
         }}
       >
-        <Grid container spacing={5}></Grid>
-
-        <Box>
-          <motion.div variants={varFadeInRight}>
-            <Typography variant="h1">
-              Check details <br />
-              of
-              <Typography
-                component="span"
-                variant="h1"
-                sx={{ color: 'primray.main' }}
-              >
-                &nbsp;CMS
-              </Typography>
-            </Typography>
-          </motion.div>
-
-          <motion.div variants={varFadeInRight}>
-            <Typography
+        <Box
+          sx={{
+            position: 'relative',
+            height: '100%',
+            width: {
+              xs: '100%',
+              sm: '100%',
+              md: '50%',
+            },
+            marginRight: {
+              xs: 0,
+              sm: 0,
+              md: 4,
+            },
+          }}
+        >
+          <Image
+            src="/static/details_hero.jpg"
+            layout="responsive"
+            height={400}
+            width={600}
+            alt="details_hero"
+            className="details_hero"
+          />
+          {useMediaQuery('(min-width: 900px)') ? (
+            <Box
               sx={{
-                display: 'inline-block',
-                textAlign: 'justify',
-                marginTop: 4,
-                marginBottom: 4,
-                marginRight: {
-                  xs: 0,
-                  sm: 0,
-                  md: 4,
-                },
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                zIndex: 10,
+                marginRight: -41,
+                marginTop: 2,
               }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-              enim vero accusamus unde nulla quia exercitationem, consectetur
-              excepturi harum.
-            </Typography>
-          </motion.div>
+              <motion.div variants={varFadeInRight}>
+                <Typography variant="h1">
+                  <Typography
+                    component="span"
+                    variant="h1"
+                    className="stroke-text"
+                  >
+                    Check
+                  </Typography>{' '}
+                  details of
+                  <Typography
+                    component="span"
+                    variant="h1"
+                    sx={{ color: 'primary.main' }}
+                  >
+                    &nbsp;CMS
+                  </Typography>
+                </Typography>
+              </motion.div>
+            </Box>
+          ) : (
+            <Box>
+              <motion.div variants={varFadeInRight}>
+                <Typography variant="h1" align="center" sx={{ marginTop: 5 }}>
+                  Check details <br />
+                  of
+                  <Typography
+                    component="span"
+                    variant="h1"
+                    sx={{ color: 'primary.main' }}
+                  >
+                    &nbsp;CMS
+                  </Typography>
+                </Typography>
+              </motion.div>
+            </Box>
+          )}
+        </Box>
+
+        <Box
+          sx={{
+            width: {
+              xs: '100%',
+              sm: '100%',
+              md: '50%',
+            },
+          }}
+        >
+          <CustomCard sx={{ marginTop: 7 }}>
+            <motion.div variants={varFadeInRight}>
+              <Typography
+                sx={{
+                  display: 'inline-block',
+                  textAlign: 'justify',
+                }}
+              >
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum
+                neque officia facilis inventore assumenda doloribus aliquam
+                cumque incidunt, modi error?
+              </Typography>
+            </motion.div>
+          </CustomCard>
         </Box>
       </Container>
     </RootStyle>
